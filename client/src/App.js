@@ -1,13 +1,17 @@
-import { Route, Routes } from "react-router-dom";
 
-import About from "./pages/About";
-import Home from "./pages/Home";
+import React from "react";
+import SendEmail from "./components/SendEmail";
 
 const App = () => (
-	<Routes>
-		<Route path="/" element={<Home />} />
-		<Route path="/about/this/site" element={<About />} />
-	</Routes>
+	<div>
+	{/*	<Routes>
+			<Route path="/" element={<Home />} />
+			<Route path="/about/this/site" element={<About />} />
+		</Routes>*/}
+		<SendEmail />
+	</div>
+	// eslint-disable-next-line
+
 );
 
 export default App;
