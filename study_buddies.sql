@@ -16,3 +16,5 @@ CREATE TABLE availability (
                               topic VARCHAR(100) NOT NULL,
                               trainees_id INTEGER REFERENCES trainees(id) ON DELETE CASCADE
 );
+insert into trainees (first_name, surname, email, slack_username) values ('Ender', 'Tanriverdi', 'endertanver@gmail.com','ender-TA');
+insert into availability (availability_date, availability_time, topic, trainees_id) values ('2023-02-15', '10:00:00', 'SQL', 1);
