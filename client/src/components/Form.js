@@ -1,8 +1,8 @@
 import React from "react";
-function Home() {
+function Form() {
   return (
     <div>
     </div>
   );
 }
-export default Home;
+export default Form;
