@@ -2,7 +2,7 @@
 	"env": {
 		"browser": true
 	},
-	"extends": ["plugin:jsx-a11y/strict", "plugin:react/recommended"],
+	"extends": ["plugin:jsx-a11y/strict", "plugin:react/recommended", "plugin:prettier/recommended"],
 	"plugins": ["react-hooks"],
 	"rules": {
 		"react/jsx-tag-spacing": "error",
@@ -13,6 +13,7 @@
 		"react-hooks/exhaustive-deps": "error"
 	},
 	"settings": {
+    "indent": ["error", 2],
 		"react": {
 			"version": "detect"
 		}
