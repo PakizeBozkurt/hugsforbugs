@@ -1,13 +1,13 @@
 import React from "react";
 // import logo from "/Users/nagehan/Documents/hugsforbugs/client/src/components/logo.png";
 import vid from "./pexels-c-technical-6334253.mp4";
-import "./hom.css";
+import "./home.css";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Headings from "./Heading";
 import Subheading from "./Subheading";
 
-function Hom() {
+function Home() {
 	return (
 		<div>
 			{/* <img
@@ -29,7 +29,7 @@ function Hom() {
 				find your study flow.
 			</p>
 			<Button className="button" variant="primary" size="lg">
-				<Link to={"/Home"}>Get Start </Link>
+				<Link to={"/Form"}>Get Start </Link>
 			</Button>{" "}
 			<video className="video" autoPlay loop muted>
 				<source src={vid} type="video/mp4" />
@@ -38,4 +38,4 @@ function Hom() {
 	);
 }
 
-export default Hom;
+export default Home;
