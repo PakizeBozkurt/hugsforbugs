@@ -6,10 +6,10 @@ import Form from "./Form";
 function Navigator() {
   return (
     <div>
-        <Routes>       /* it will route to home page */
+      <Routes>       /* it will route to home page */
         <Route path="/" element={<Home />}></Route>
-            <Route path="/home" element={<Form />}></Route>
-        </Routes>
+        <Route path="/home" element={<Form />}></Route>
+      </Routes>
     </div>
   );
 }
