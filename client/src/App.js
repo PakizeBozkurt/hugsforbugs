@@ -10,7 +10,7 @@ const App = () => (
 			<Route path="/about/this/site" element={<About />} />
 		</Routes>*/}
 		<SendEmail />
-		<DateTimePicker />
+		
 	</div>
 	// eslint-disable-next-line
 );
