@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 
-
 const SendEmail = () => {
-    const [email, setEmail] = useState("");
-    const [to, setTo] = useState("");
-    const [subject, setSubject] = useState("");
-    const [message, setMessage] = useState("");
-
+	const [email] = React.useState(localStorage.getItem("email"));
+	const [to] = React.useState(props.owner.email);
+	const [subject] = React.useState("Study Buddy");
+	const [message] = React.useState("Hello, I would like to study with you.");
 
     const sendEmail = async (e) => {
         e.preventDefault();
@@ -34,8 +32,14 @@ const SendEmail = () => {
             alert("Email sent successfully");
         window.location.reload();
         }
+	return (
+		<div>
+			<button className="btn btn-outline-info" onClick={sendEmail}>
+				Send Email
+			</button>
+		</div>
+	);
 
-    };
     return (
        <div>
 <div className={"container"}>
@@ -68,6 +72,5 @@ const SendEmail = () => {
        </div>
     );
 };
-
 
 export default SendEmail;

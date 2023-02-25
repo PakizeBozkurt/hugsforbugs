@@ -15,7 +15,7 @@ module.exports = {
 				},
 			},
 			{
-				test: /\.(png|svg|jpe?g|gif)$/,
+				test: /\.(pdf|doc|docx|xls|xlsx|ppt|pptx|zip|rar|tar|gz|7z|iso|dmg|exe|mp4)$/,
 				loader: "file-loader",
 			},
 			{
