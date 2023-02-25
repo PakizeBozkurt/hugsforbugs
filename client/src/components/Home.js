@@ -28,9 +28,16 @@ function Home() {
         motivated students from all CYF trainees to boost your productivity and
         find your study flow.
       </p>
-      <Button className="button" variant="primary" size="lg">
-        <Link to={"/Home"}>Get Started</Link>
+			<div>
+      <button>
+        <Link to={"/login"}>Login</Link>
+      </button>
+			</div>
+			<span>
+			<Button className="button" variant="primary" size="lg">
+        <Link to={"/register"}>Register</Link>
       </Button>{" "}
+			</span>
       <video className="video" autoPlay loop muted>
         <source src={vid} type="video/mp4" />
       </video>

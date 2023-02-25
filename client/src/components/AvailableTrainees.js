@@ -8,7 +8,7 @@ function AvailableTrainees() {
 
 	React.useEffect(() => {
 		fetch(
-			`http://localhost:3001/availabilities?search=${search}&filter=${filter}`,
+			`https://study-buddies.onrender.com/availabilities?search=${search}&filter=${filter}`,
 			{
 				method: "GET",
 				headers: {

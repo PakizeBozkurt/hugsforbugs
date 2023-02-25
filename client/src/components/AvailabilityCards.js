@@ -1,6 +1,6 @@
 import React from "react";
-
-function AvailibityCards() {
+import SendEmail from "./SendEmail";
+function AvailibityCards(props) {
   return (
     <div>
       <div>

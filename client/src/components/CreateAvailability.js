@@ -26,7 +26,7 @@ function CreateAvailability() {
 			topic: topic,
 			trainees_id: id,
 		};
-		fetch("http://localhost:3001/availability", {
+		fetch("https://study-buddies.onrender.com/availability", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
