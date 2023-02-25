@@ -82,6 +82,9 @@
 		"morgan": "^1.10.0",
 		"pg": "^8.9.0",
 		"react-bootstrap": "^2.7.2",
+		"react-day-picker": "^8.6.0",
+		"react-hook-form": "^7.43.2",
+		"react-multi-date-picker": "^3.3.4",
 		"winston": "^3.8.2"
 	},
 	"engines": {
