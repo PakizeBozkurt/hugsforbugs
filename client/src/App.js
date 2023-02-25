@@ -1,18 +1,11 @@
 
 import React from "react";
 import SendEmail from "./components/SendEmail";
-import DateTimePicker from "./components/DateTimePicker";
-
+import Navigator from "./components/Navigator";
 const App = () => (
 	<div>
-		{/*	<Routes>
-			<Route path="/" element={<Home />} />
-			<Route path="/about/this/site" element={<About />} />
-		</Routes>*/}
-		<SendEmail />
-		
+		<Navigator />
 	</div>
-	// eslint-disable-next-line
 );
 
 export default App;

@@ -40,6 +40,38 @@ const SendEmail = () => {
 			</button>
 		</div>
 	);
+
+    return (
+       <div>
+<div className={"container"}>
+                <div className={"row"}>
+                    <div className={"col-md-6"}>
+                        <Form onSubmit={sendEmail}>
+                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <Form.Label>From</Form.Label>
+                                <Form.Control type="email" placeholder="Enter email" onChange={(e) => setEmail(e.target.value)} />
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <Form.Label>To</Form.Label>
+                                <Form.Control type="email" placeholder="Enter email" onChange={(e) => setTo(e.target.value)} />
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <Form.Label>Subject</Form.Label>
+                                <Form.Control type="text" placeholder="Enter subject" onChange={(e) => setSubject(e.target.value)} />
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <Form.Label>Message</Form.Label>
+                                <Form.Control as="textarea" rows={3} onChange={(e) => setMessage(e.target.value)} />
+                            </Form.Group>
+                            <Button variant="primary" type="submit">
+                                Send
+                            </Button>
+                        </Form>
+                    </div>
+                </div>
+</div>
+       </div>
+    );
 };
 
 export default SendEmail;
