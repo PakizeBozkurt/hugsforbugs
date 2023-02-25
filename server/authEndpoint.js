@@ -10,10 +10,10 @@ const bcrypt = require("bcrypt");
 const secret = "mysecret";
 
 const pool = new Pool({
-	user: "postgres",
-	host: "localhost",
-	database: "study_buddies",
-	password: "CYFStudent123",
+	user: "ekalrqar",
+	host: "34.253.160.140",
+	database: "ekalrqar",
+	password: "E9HOySzUKhJGfNC2sGj_MgkaF32DF_p5",
 	port: 5432,
 });
 
