@@ -102,21 +102,28 @@ app.post("/login", async (req, res) => {
 
 // Returns a list of all availability records in the database.
 // Only authenticated users can access this endpoint.
-app.get("/availabilities/", (req, res) => {
-	jwt.verify(req.headers.authorization, secret, (error, decoded) => {
-		if (error) {
-			res.status(401).json({ message: "Unauthorized" });
-		} else {
-			pool.query(
-				"select t.name,t.email, a.availability_date,a.topic from trainees t join availability a on t.id=a.trainees_id",
-				(error, results) => {
-					if (error) {
-						throw error;
-					}
-					res.status(200).json(results.rows);
-				}
-			);
-		}
+app.get("/availabilities", async (req, res) => {
+	const queryOptions = {
+		daily: "WHERE availability_date = CURRENT_DATE",
+		weekly: "WHERE availability_date BETWEEN CURRENT_DATE AND CURRENT_DATE + interval '7' day",
+		monthly: `WHERE (date_trunc('month', availability_date) = date_trunc('month', CURRENT_DATE)
+              OR date_trunc('month', availability_date) = date_trunc('month', CURRENT_DATE + interval '1' month)) AND availability_date >= CURRENT_DATE`,
+		name: `WHERE t.name = '${req.query.name}'`,
+		email: `WHERE t.email = '${req.query.email}'`,
+	};
+	const queryFilter = queryOptions[req.query.filter] || "";
+	const search = req.query.search || "";
+	const query = `
+        SELECT a.availability_date, a.topic, t.name, t.email
+        FROM availability a
+                 JOIN trainees t ON a.trainees_id = t.id ${queryFilter}
+  AND (a.topic ILIKE '%${search}%' OR t.name ILIKE '%${search}%' OR t.email ILIKE '%${search}%')
+        ORDER BY a.availability_date ASC
+    `;
+
+	const { rows } = await pool.query(query);
+	res.json({
+		data: rows,
 	});
 });
 
