@@ -140,16 +140,30 @@ app.post("/login", async (req, res) => {
 // Returns a list of all availability records in the database.
 // Only authenticated users can access this endpoint.
 app.get("/availabilities", async (req, res) => {
+	// Set the "Access-Control-Allow-Origin" header to allow requests from "http://localhost:3000"
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader(
+		"Access-Control-Allow-Methods",
+		"GET, POST, PUT, DELETE, OPTIONS"
+	);
+	res.setHeader(
+		"Access-Control-Allow-Headers",
+		"Origin, X-Requested-With, Content-Type, Accept, Authorization"
+	);
+	// Define query options for different filters
 	const queryOptions = {
 		daily: "WHERE availability_date = CURRENT_DATE",
-		weekly: "WHERE availability_date BETWEEN CURRENT_DATE AND CURRENT_DATE + interval '7' day",
+		weekly:
+			"WHERE availability_date BETWEEN CURRENT_DATE AND CURRENT_DATE + interval '7' day",
 		monthly: `WHERE (date_trunc('month', availability_date) = date_trunc('month', CURRENT_DATE)
               OR date_trunc('month', availability_date) = date_trunc('month', CURRENT_DATE + interval '1' month)) AND availability_date >= CURRENT_DATE`,
 		name: `WHERE t.name = '${req.query.name}'`,
 		email: `WHERE t.email = '${req.query.email}'`,
 	};
+	// Get filter and search values from query params, default to empty string if not present
 	const queryFilter = queryOptions[req.query.filter] || "";
 	const search = req.query.search || "";
+	// Build SQL query to retrieve availabilities and trainee info with filters and search
 	const query = `
         SELECT a.availability_date, a.topic, t.name, t.email
         FROM availability a
@@ -157,12 +171,13 @@ app.get("/availabilities", async (req, res) => {
   AND (a.topic ILIKE '%${search}%' OR t.name ILIKE '%${search}%' OR t.email ILIKE '%${search}%')
         ORDER BY a.availability_date ASC
     `;
-
+	// Execute query and send back result as JSON
 	const { rows } = await pool.query(query);
 	res.json({
 		data: rows,
 	});
 });
+
 
 // Provide allows authenticated users to create an availability record by providing the availability date, topic, and trainee ID.
 app.post("/availability", (req, res) => {
