@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const express = require("express");
 const app = express();
 app.use(express.json());
@@ -28,7 +29,6 @@ app.use(
 		accessControlAllowCredentials: true,
 	})
 );
-
 
 // Provide users to create an account by providing their email, password, and name.
 app.post(
@@ -84,58 +84,65 @@ app.post(
 // If the credentials are valid, the server returns a JWT that can be used to authenticate subsequent requests.
 // Handle POST request to login endpoint
 app.post("/login", async (req, res) => {
-  // Set CORS headers
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+	// Set CORS headers
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader(
+		"Access-Control-Allow-Methods",
+		"GET, POST, PUT, DELETE, OPTIONS"
+	);
+	res.setHeader(
+		"Access-Control-Allow-Headers",
+		"Origin, X-Requested-With, Content-Type, Accept, Authorization"
+	);
 
-  // Validate request body using express-validator
-  const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    return res.status(400).json({ errors: errors.array() });
-  }
+	// Validate request body using express-validator
+	const errors = validationResult(req);
+	if (!errors.isEmpty()) {
+		return res.status(400).json({ errors: errors.array() });
+	}
 
-  // Get email and password from request body
-  const { email, password } = req.body;
+	// Get email and password from request body
+	const { email, password } = req.body;
 
-  try {
-    // Check if user with given email exists in database
-    const result = await pool.query("SELECT * FROM trainees WHERE email = $1", [email]);
-    if (result.rows.length === 0) {
-      return res.status(400).json({ errors: [{ msg: "Invalid credentials" }] });
-    }
+	try {
+		// Check if user with given email exists in database
+		const result = await pool.query("SELECT * FROM trainees WHERE email = $1", [
+			email,
+		]);
+		if (result.rows.length === 0) {
+			return res.status(400).json({ errors: [{ msg: "Invalid credentials" }] });
+		}
 
-    // Compare password with hash in database
-    const user = result.rows[0];
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-      return res.status(400).json({ errors: [{ msg: "Invalid credentials" }] });
-    } else {
-      // Create and return JWT token if authentication succeeds
-      const payload = {
-        user: {
-          id: user.id,
-        },
-      };
-      jwt.sign(payload, secret, { expiresIn: 360000 }, (err, token) => {
-        if (err) {
-          throw err;
-        } else {
-          res.json({
-            id: user.id,
-            name: user.name,
-            email: user.email,
-            token: token,
-          });
-        }
-      });
-    }
-  } catch (err) {
-    // Return 500 error if server error occurs
-    res.status(500).json({ errors: [{ msg: "Server error" }] });
-  }
+		// Compare password with hash in database
+		const user = result.rows[0];
+		const isMatch = await bcrypt.compare(password, user.password);
+		if (!isMatch) {
+			return res.status(400).json({ errors: [{ msg: "Invalid credentials" }] });
+		} else {
+			// Create and return JWT token if authentication succeeds
+			const payload = {
+				user: {
+					id: user.id,
+				},
+			};
+			jwt.sign(payload, secret, { expiresIn: 360000 }, (err, token) => {
+				if (err) {
+					throw err;
+				} else {
+					res.json({
+						id: user.id,
+						name: user.name,
+						email: user.email,
+						token: token,
+					});
+				}
+			});
+		}
+	} catch (err) {
+		// Return 500 error if server error occurs
+		res.status(500).json({ errors: [{ msg: "Server error" }] });
+	}
 });
-
 
 // Returns a list of all availability records in the database.
 // Only authenticated users can access this endpoint.
@@ -178,26 +185,34 @@ app.get("/availabilities", async (req, res) => {
 	});
 });
 
-
 // Provide allows authenticated users to create an availability record by providing the availability date, topic, and trainee ID.
-app.post("/availability", (req, res) => {
-	// eslint-disable-next-line no-unused-vars
+// Handle HTTP POST requests to create a new availability
+app.post("/availability", async (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	res.setHeader(
+		"Access-Control-Allow-Methods",
+		"GET, POST, PUT, DELETE, OPTIONS"
+	);
+	res.setHeader(
+		"Access-Control-Allow-Headers",
+		"Origin, X-Requested-With, Content-Type, Accept, Authorization"
+	);
+	// Verify the JWT token in the Authorization header
 	jwt.verify(req.headers.authorization, secret, (error, decoded) => {
 		if (error) {
 			res.status(401).json({ message: "Unauthorized" });
 		} else {
+			const errors = validationResult(req);
+			if (!errors.isEmpty()) {
+				return res.status(400).json({ errors: errors.array() });
+			}
 			const { availability_date, topic, trainees_id } = req.body;
+			// Insert the new availability into the database
 			pool.query(
 				"INSERT INTO availability (availability_date, topic, trainees_id) VALUES ($1, $2, $3)",
-				[availability_date, topic, trainees_id],
-				/* eslint-disable no-unused-vars */
-				(error, results) => {
-					if (error) {
-						throw error;
-					}
-					res.status(201).json({ message: "Availability created" });
-				}
+				[availability_date, topic, trainees_id]
 			);
+			res.status(201).json({ msg: "Availability created" });
 		}
 	});
 });
@@ -205,6 +220,7 @@ app.post("/availability", (req, res) => {
 // Provide authenticated users to update or delete an availability record by providing the availability ID, availability date, topic, and trainee ID.
 
 app.put("/availability/:id", (req, res) => {
+	// eslint-disable-next-line no-unused-vars
 	jwt.verify(req.headers.authorization, secret, (error, decoded) => {
 		if (error) {
 			res.status(401).json({ message: "Unauthorized" });
