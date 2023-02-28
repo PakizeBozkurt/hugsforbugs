@@ -219,27 +219,51 @@ app.post("/availability", async (req, res) => {
 
 // Provide authenticated users to update or delete an availability record by providing the availability ID, availability date, topic, and trainee ID.
 
+// Update availability with given ID
 app.put("/availability/:id", (req, res) => {
-	// eslint-disable-next-line no-unused-vars
-	jwt.verify(req.headers.authorization, secret, (error, decoded) => {
-		if (error) {
-			res.status(401).json({ message: "Unauthorized" });
-		} else {
-			const id = parseInt(req.params.id);
-			const { availability_date, topic, trainees_id } = req.body;
-			pool.query(
-				"UPDATE availability SET availability_date = $1, topic = $2, trainees_id = $3 WHERE id = $4",
-				[availability_date, topic, trainees_id, id],
-				(error, results) => {
-					if (error) {
-						throw error;
-					}
-					res.status(200).json({ message: "Availability updated" });
-				}
-			);
-		}
-	});
+
+  res.setHeader("Access-Control-Allow-Origin", "*");
+
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, DELETE, OPTIONS"
+  );
+
+
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+
+  // Verify JWT token
+  jwt.verify(req.headers.authorization, secret, (error, decoded) => {
+    if (error) {
+      // If token is invalid or not provided, return unauthorized status code
+      res.status(401).json({ message: "Unauthorized" });
+    } else {
+      // Extract the ID from the request parameters
+      const id = parseInt(req.params.id);
+
+      // Extract availability data from the request body
+      const { availability_date, topic, trainees_id } = req.body;
+
+      // Update availability in the database
+      pool.query(
+        "UPDATE availability SET availability_date = $1, topic = $2, trainees_id = $3 WHERE id = $4",
+        [availability_date, topic, trainees_id, id],
+        (error, results) => {
+          if (error) {
+            // If there was an error updating the availability, throw it
+            throw error;
+          }
+          // If availability was updated successfully, return a success status code and message
+          res.status(200).json({ message: "Availability updated" });
+        }
+      );
+    }
+  });
 });
+
 
 app.delete("/availability/:id", (req, res) => {
 	jwt.verify(req.headers.authorization, secret, (error, decoded) => {
