@@ -2,6 +2,7 @@ import React from 'react';
 import {Form} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 
+
 const Register = () => {
     const [name, setFirstName] = React.useState('');
     const [email, setEmail] = React.useState('');
@@ -23,61 +24,69 @@ const Register = () => {
             email,
             password
         }
-        fetch('https://study-buddies.onrender.com/register', { // this API comes from render.com
+        fetch('https://study-buddies.onrender.com/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(user)
-        }).then(res => res.json())
+        })
+            .then(res => res.json())
             .then(data => {
-                if (data.token) {
-                    alert('You are registered')
-                    localStorage.setItem('token', data.token); 
+                if ( data.msg=== "User created") {
+                    alert("User created");
                     window.location.href = '/login';
                 }
+                else if(data.errors[0].msg === "User already exists"){
+                    alert("User already exists");
+                }
                 else {
-                    // alert("This email is already registered")
-                    window.location.href='/login';
+                    alert("Fill in all fields");
                 }
             })
             .catch(err => console.log(err))
     }
-    const handleBack = (e) => {
-        e.preventDefault();
-        window.location.href = '/';
-    }
 
-    return (
-        <div>
-           <div className="container">
-                <div className="row">
-                    <div className="col-md-6 mt-5 mx-auto">
-                        <Form style={{ width: '50%', margin: 'auto' }}>
-                            <Form.Group controlId="formBasicEmail">
-                                <Form.Label style={{color:"goldenrod"}}>First Name</Form.Label>
-                                <Form.Control type="text" placeholder="Enter First Name" name="firstName" onChange={handleChange} />
-                            </Form.Group>
-                            <Form.Group controlId="formBasicEmail">
-                                <Form.Label style={{color:"goldenrod"}}>Email address</Form.Label>
-                                <Form.Control type="email" placeholder="Enter email" name="email" onChange={handleChange} />
-                            </Form.Group>
-                            <Form.Group controlId="formBasicPassword">
-                                <Form.Label style={{color:"goldenrod"}}>Password</Form.Label>
-                                <Form.Control type="password" placeholder="Password" name="password" onChange={handleChange} />
-                            </Form.Group>
-                            <Button variant="outline-success" style={{margin:'10px'}} type="submit" onClick={register}>
-                                Register
-                            </Button>
-                            <Button variant="outline-success" style={{margin:'10px'}} type="submit" onClick={handleBack}>
-                                Back
-                            </Button>
-                        </Form>
+        const handleBack = (e) => {
+            e.preventDefault();
+            window.location.href = '/';
+        }
+
+        return (
+            <div>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-6 mt-5 mx-auto">
+                            <Form style={{width: '50%', margin: 'auto'}}>
+                                <Form.Group controlId="formBasicEmail">
+                                    <Form.Label style={{color: "goldenrod"}}>First Name</Form.Label>
+                                    <Form.Control type="text" placeholder="Enter First Name" name="firstName"
+                                                  onChange={handleChange}/>
+                                </Form.Group>
+                                <Form.Group controlId="formBasicEmail">
+                                    <Form.Label style={{color: "goldenrod"}}>Email address</Form.Label>
+                                    <Form.Control type="email" placeholder="Enter email" name="email"
+                                                  onChange={handleChange}/>
+                                </Form.Group>
+                                <Form.Group controlId="formBasicPassword">
+                                    <Form.Label style={{color: "goldenrod"}}>Password</Form.Label>
+                                    <Form.Control type="password" placeholder="Password" name="password"
+                                                  onChange={handleChange}/>
+                                </Form.Group>
+                                <Button variant="outline-success" style={{margin: '10px'}} type="submit"
+                                        onClick={register}>
+                                    Register
+                                </Button>
+                                <Button variant="outline-success" style={{margin: '10px'}} type="submit"
+                                        onClick={handleBack}>
+                                    Back
+                                </Button>
+                            </Form>
+                        </div>
                     </div>
                 </div>
-           </div>
-        </div>
-    );
-};
+            </div>
+        );
+    };
 
-export default Register;
+    export default Register;
