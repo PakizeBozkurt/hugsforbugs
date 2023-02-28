@@ -82,36 +82,60 @@ app.post(
 
 // Provide allows registered users to log in by providing their email and password.
 // If the credentials are valid, the server returns a JWT that can be used to authenticate subsequent requests.
+// Handle POST request to login endpoint
 app.post("/login", async (req, res) => {
-	const errors = validationResult(req);
-	if (!errors.isEmpty()) {
-		return res.status(400).json({ errors: errors.array() });
-	}
+  // Set CORS headers
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
 
-	const { email, password } = req.body;
+  // Validate request body using express-validator
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
 
-	try {
-		const result = await pool.query("SELECT * FROM trainees WHERE email = $1", [
-			email,
-		]);
-		if (result.rows.length === 0) {
-			return res.status(400).json({ errors: [{ msg: "Invalid credentials" }] });
-		}
+  // Get email and password from request body
+  const { email, password } = req.body;
 
-		const user = result.rows[0];
-		const isMatch = await bcrypt.compare(password, user.password);
-		if (!isMatch) {
-			return res.status(400).json({ errors: [{ msg: "Invalid credentials" }] });
-		}
+  try {
+    // Check if user with given email exists in database
+    const result = await pool.query("SELECT * FROM trainees WHERE email = $1", [email]);
+    if (result.rows.length === 0) {
+      return res.status(400).json({ errors: [{ msg: "Invalid credentials" }] });
+    }
 
-		const token = jwt.sign({ userId: user.id }, secret, { expiresIn: "1h" });
-		res.json({ token });
-	} catch (err) {
-		//eslint-disable-next-line
-		console.error(err);
-		res.status(500).json({ errors: [{ msg: "Server error" }] });
-	}
+    // Compare password with hash in database
+    const user = result.rows[0];
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(400).json({ errors: [{ msg: "Invalid credentials" }] });
+    } else {
+      // Create and return JWT token if authentication succeeds
+      const payload = {
+        user: {
+          id: user.id,
+        },
+      };
+      jwt.sign(payload, secret, { expiresIn: 360000 }, (err, token) => {
+        if (err) {
+          throw err;
+        } else {
+          res.json({
+            id: user.id,
+            name: user.name,
+            email: user.email,
+            token: token,
+          });
+        }
+      });
+    }
+  } catch (err) {
+    // Return 500 error if server error occurs
+    res.status(500).json({ errors: [{ msg: "Server error" }] });
+  }
 });
+
 
 // Returns a list of all availability records in the database.
 // Only authenticated users can access this endpoint.
