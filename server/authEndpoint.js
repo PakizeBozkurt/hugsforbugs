@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 const express = require("express");
 const app = express();
 app.use(express.json());
@@ -9,19 +8,27 @@ const cors = require("cors");
 const bcrypt = require("bcrypt");
 const secret = "mysecret";
 
+//Connect with Database
+
 const pool = new Pool({
-	user: "ekalrqar",
-	host: "34.253.160.140",
-	database: "ekalrqar",
-	password: "E9HOySzUKhJGfNC2sGj_MgkaF32DF_p5",
+	user: "postgres",
+	host: "localhost",
+	database: "study_buddies",
+	password: "CYFStudent123",
 	port: 5432,
 });
 
+//CORS (Cross-Origin Resource Sharing) for incoming HTTP requests
 app.use(
 	cors({
 		accessControlAllowOrigin: "*",
+		accessControlAllowMethods: "GET, POST, PUT, DELETE, OPTIONS",
+		accessControlAllowHeaders:
+			"Origin, X-Requested-With, Content-Type, Accept, Authorization",
+		accessControlAllowCredentials: true,
 	})
 );
+
 
 // Provide users to create an account by providing their email, password, and name.
 app.post(
@@ -127,7 +134,6 @@ app.get("/availabilities", async (req, res) => {
 	});
 });
 
-
 // Provide allows authenticated users to create an availability record by providing the availability date, topic, and trainee ID.
 app.post("/availability", (req, res) => {
 	// eslint-disable-next-line no-unused-vars
@@ -139,6 +145,7 @@ app.post("/availability", (req, res) => {
 			pool.query(
 				"INSERT INTO availability (availability_date, topic, trainees_id) VALUES ($1, $2, $3)",
 				[availability_date, topic, trainees_id],
+				/* eslint-disable no-unused-vars */
 				(error, results) => {
 					if (error) {
 						throw error;
