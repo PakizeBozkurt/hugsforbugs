@@ -221,16 +221,12 @@ app.post("/availability", async (req, res) => {
 
 // Update availability with given ID
 app.put("/availability/:id", (req, res) => {
-
   res.setHeader("Access-Control-Allow-Origin", "*");
-
   res.setHeader(
     "Access-Control-Allow-Methods",
     "GET, POST, PUT, DELETE, OPTIONS"
   );
-
-
-  res.setHeader(
+ res.setHeader(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept, Authorization"
   );
@@ -266,24 +262,42 @@ app.put("/availability/:id", (req, res) => {
 
 
 app.delete("/availability/:id", (req, res) => {
+	res.setHeader("Access-Control-Allow-Origin", "*");
+	// Set CORS headers to allow DELETE method
+	res.setHeader(
+		"Access-Control-Allow-Methods",
+		"GET, POST, PUT, DELETE, OPTIONS"
+	);
+	res.setHeader(
+		"Access-Control-Allow-Headers",
+		"Origin, X-Requested-With, Content-Type, Accept, Authorization"
+	);
+
+	// Verify the JWT token in the request header
 	jwt.verify(req.headers.authorization, secret, (error, decoded) => {
+		// If token is invalid or not present, return Unauthorized status
 		if (error) {
 			res.status(401).json({ message: "Unauthorized" });
 		} else {
+			// If token is valid, extract the id parameter from the request URL
 			const id = parseInt(req.params.id);
+			// Use the id parameter to delete a record from the database
 			pool.query(
 				"DELETE FROM availability WHERE id = $1",
 				[id],
 				(error, results) => {
 					if (error) {
+						// If an error occurs while deleting the record, throw it
 						throw error;
 					}
+					// If the record is successfully deleted, return a success status
 					res.status(200).json({ message: "Availability deleted" });
 				}
 			);
 		}
 	});
 });
+
 
 app.listen(3001, () => {
 	//eslint-disable-next-line
