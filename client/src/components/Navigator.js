@@ -4,8 +4,7 @@ import Home from "./Home";
 
 import Register from "./Register";
 import Login from "./Login";
-import AvailibityCards from "./AvailibityTable";
-import Availibites from "./Availibites";
+import AvailibityCards from "./AvailabilityCards";
 function Navigator() {
   return (
     <div>
@@ -13,7 +12,7 @@ function Navigator() {
         <Route path="/" element={<Home />}/>
         <Route path="/register" element={<Register />}/>
         <Route path="/login" element={<Login />}/>
-        <Route path="/home" element={<Availibites/>}/>
+        <Route path="/home" element={<AvailibityCards />}/>
       
       </Routes>
     </div>
