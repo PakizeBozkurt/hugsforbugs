@@ -1,10 +1,10 @@
 import { useState } from "react";
 import React from "react";
-
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 function CreateAvailability() {
 	const [date, setDate] = useState(new Date());
 	const [topic, setTopic] = useState("");
-
 	let id = localStorage.getItem("id");
 	const handleChange = (event) => {
 		const { name, value } = event.target;
@@ -14,7 +14,6 @@ function CreateAvailability() {
 			setTopic(value);
 		}
 	};
-
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		const formattedDate = `${date.getFullYear()}-${(
