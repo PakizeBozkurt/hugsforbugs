@@ -16,6 +16,7 @@ const Register = () => {
     }
   };
 
+
   const register = (e) => {
     e.preventDefault();
     const user = {
@@ -115,3 +116,5 @@ const Register = () => {
 };
 
 export default Register;
+
+
