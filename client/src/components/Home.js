@@ -22,9 +22,7 @@ function Home() {
       <p>Find your Study Buddy</p>
       <p>
         The Study Buddy is an idea to help you with your learning by sharing
-        experiences with other CYF trainees taking the same goal. Meet, chat,
-        and study with students from all classes . Create your very own study
-        room with atmospheric backgrounds, personal timers, and goals. Join
+        experiences with other CYF trainees taking the same goal. Meet and study with students from all classes . Create your very own personal timers and join
         motivated students from all CYF trainees to boost your productivity and
         find your study flow.
       </p>
