@@ -1,13 +1,6 @@
-/* .button {
-  position: absolute;
-  top: 80%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 150px;
-  height: 100px;
-  padding: 40px;
-  border: none;
-} */
+.button {
+  color: white;
+}
 .video {
   position: absolute;
   width: 100%;
