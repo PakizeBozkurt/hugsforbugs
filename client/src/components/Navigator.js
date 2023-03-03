@@ -4,16 +4,20 @@ import Home from "./Home";
 
 import Register from "./Register";
 import Login from "./Login";
-import AvailibityCards from "./AvailabilityCards";
+import CreateAvailability from "./CreateAvailability";
+import AvailableTrainees from "./AvailableTrainees";
+
 function Navigator() {
   return (
     <div>
-      <Routes>       //it will route to home page 
-        <Route path="/" element={<Home />}/>
-        <Route path="/register" element={<Register />}/>
-        <Route path="/login" element={<Login />}/>
-        <Route path="/home" element={<AvailibityCards />}/>
-      
+      <Routes>
+        {" "}
+        //it will route to home page
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/createavailability" element={<CreateAvailability />} />
+        <Route path="/home" element={<AvailableTrainees />} />
       </Routes>
     </div>
   );
