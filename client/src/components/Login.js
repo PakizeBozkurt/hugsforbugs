@@ -11,6 +11,7 @@ const Login = () => {
   const [password, setPassword] = React.useState("");
   const [err, setErr] = React.useState(false);
   const [passwordShown, setPasswordShown] = React.useState(false);
+  
   const handleEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -43,9 +44,10 @@ const Login = () => {
           localStorage.setItem("token", data.token);
           localStorage.setItem("email", email);
           localStorage.setItem("id", data.id);
-          window.location.href = "/home";
+          window.location.href = "/createavailability";
         } else {
           alert("Wrong email or password");
+          window.location.reload();
           setErr(true);
         }
       })

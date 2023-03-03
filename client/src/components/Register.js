@@ -20,11 +20,9 @@ const Register = () => {
       setPassword(e.target.value);
     }
   };
-
   const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
   };
-
   const register = (e) => {
     e.preventDefault();
     const user = {
@@ -42,13 +40,18 @@ const Register = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.token) {
-          alert("You are registered");
-          localStorage.setItem("token", data.token);
+
+        if (data.msg === "User created") {
+          alert("User created");
           window.location.href = "/login";
+        } else if (data.errors[0].msg === "User already exists") {
+          alert("User already exists");
+        } else if (!email.includes("@")) {
+          alert("Please enter a valid email");
+        } else if (password.length < 6) {
+          alert("Please enter a password that is at least 6 characters");
         } else {
-          // alert("This email is already registered")
-          window.location.href = "/login";
+          alert("Fill in all fields");
         }
       })
       .catch((err) => console.log(err));

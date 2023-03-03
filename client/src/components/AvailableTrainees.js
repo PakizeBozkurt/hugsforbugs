@@ -1,12 +1,18 @@
-import React from "react";
+
+import React,{useState,useEffect} from "react";
 import Button from "react-bootstrap/Button";
+import ResultPage from "./ResultPage";
+import Logout from "./Logout";
+import { Link } from "react-router-dom";
+import AvailabilityCards from "./AvailabilityCards";
+
 
 function AvailableTrainees() {
-	const [trainees, setTrainees] = React.useState([]);
+	const [trainees, setTrainees] = useState([]);
 	const [search, setSearch] = useState("");
 	const [filter, setFilter] = useState("daily");
 
-	React.useEffect(() => {
+	useEffect(() => {
 		fetch(
 			`https://study-buddies.onrender.com/availabilities?search=${search}&filter=${filter}`,
 			{
@@ -40,8 +46,10 @@ function AvailableTrainees() {
 		setFilter("monthly");
 	}
 
-	return (
-		<div>
+	return (<div>
+		{trainees.length <=1 ? (<div>
+			<ResultPage filter={setFilter}/>
+		</div>) :(<div>
 			<h1 style={{ color: "yellow", textAlign: "center" }}>Trainees with matching availability</h1>
 			<div className="container">
 				<div className="row">
@@ -85,7 +93,7 @@ function AvailableTrainees() {
 				<span>
 					<div className="col-md-6">
 						<div className="btn-group" role="group" aria-label="Basic example">
-							<LogOut />
+							<Logout />
 							<button
 								className="btn btn-outline-info"
 								style={{ float: "right", margin: "10px" }}
@@ -112,7 +120,7 @@ function AvailableTrainees() {
 										padding: "2px",
 									}}
 								>
-									<AvailibityCards
+								<AvailabilityCards
 										key={trainee.id}
 										trainee={trainee}
 										trainees={trainees}
@@ -124,6 +132,7 @@ function AvailableTrainees() {
 					})}
 				</div>
 			</div>
+		</div>)}
 		</div>
 	);
 }
