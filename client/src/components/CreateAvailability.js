@@ -2,6 +2,7 @@ import { useState } from "react";
 import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+
 function CreateAvailability() {
 	const [date, setDate] = useState(new Date());
 	const [topic, setTopic] = useState("");
@@ -51,44 +52,60 @@ function CreateAvailability() {
 	};
 
 	return (
-		<div>
-			<div className="container">
-				<div className="row">
-					<div className="col-md-6 mt-5 mx-auto">
-						<Form style={{ width: "50%", margin: "auto" }}>
-							<Form.Group controlId="formBasicDate">
-								<Form.Label style={{ color: "goldenrod" }}>Date</Form.Label>
-								<Form.Control type="date" name="date" onChange={handleChange} />
-							</Form.Group>
-							<Form.Group controlId="formBasicTopic">
-								<Form.Label style={{ color: "goldenrod" }}>Topic</Form.Label>
-								<Form.Control
-									type="text"
-									placeholder="Topic"
-									name="topic"
-									onChange={handleChange}
-								/>
-							</Form.Group>
-							<Button
-								onClick={handleSubmit}
-								className="btn btn-outline-info"
-								style={{ float: "right", margin: "10px" }}
-							>
-								Create
-							</Button>
-							<Button
-								onClick={handleBack}
-								className="btn btn-outline-info"
-								style={{ float: "right", margin: "10px" }}
-							>
-								Home
-							</Button>
-						</Form>
-					</div>
-				</div>
-			</div>
-		</div>
-	);
+    <div
+      style={{
+        background:
+          "linear-gradient(to right, rgba(102, 126, 234, 0.5), rgba(118, 75, 162, 0.5))",
+      }}
+    >
+      <div className="container">
+        <h1 align="center" className="pt-4">
+          ADD NEW AVAILABILITY
+        </h1>
+        <div className="row">
+          <div className="col-md-6 mt-5 mx-auto">
+            <Form style={{ width: "50%", margin: "auto" }}>
+              <Form.Group controlId="formBasicDate">
+                <Form.Label style={{ color: "darkblue" }}>Date</Form.Label>
+                <Form.Control
+                  type="date"
+                  min={new Date().toISOString().split("T")[0]}
+                  name="date"
+                  onChange={handleChange}
+                />
+              </Form.Group>
+              <Form.Group controlId="formBasicTopic">
+                <Form.Label style={{ color: "darkblue" }}>Topic</Form.Label>
+                <Form.Control
+                  className="col-md-6"
+                  feedback="Please enter a topic."
+                  invalid
+                  type="text"
+                  placeholder="Topic"
+                  name="topic"
+                  onChange={handleChange}
+                />
+              </Form.Group>
+              <Button
+                onClick={handleSubmit}
+                className="btn btn-outline-info"
+                style={{ float: "right", margin: "10px" }}
+              >
+                Add availability
+              </Button>
+              <Button
+                onClick={handleBack}
+                className="btn btn-outline-info"
+                style={{ float: "right", margin: "10px" }}
+              >
+                Back
+              </Button>
+            </Form>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default CreateAvailability;

@@ -1,9 +1,12 @@
+
 import React,{useState,useEffect} from "react";
 import Button from "react-bootstrap/Button";
 import ResultPage from "./ResultPage";
 import Logout from "./Logout";
 import { Link } from "react-router-dom";
 import AvailabilityCards from "./AvailabilityCards";
+
+
 function AvailableTrainees() {
 	const [trainees, setTrainees] = useState([]);
 	const [search, setSearch] = useState("");
