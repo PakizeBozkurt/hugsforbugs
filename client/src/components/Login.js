@@ -6,6 +6,7 @@ const Login = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [err, setErr] = React.useState(false);
+
   const handleEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -38,6 +39,7 @@ const Login = () => {
           window.location.href = "/createavailability";
         } else {
           alert("Wrong email or password");
+          window.location.reload();
           setErr(true);
         }
       })
@@ -64,7 +66,7 @@ const Login = () => {
               <Form.Group controlId="formBasicPassword">
                 <Form.Label style={{ color: "goldenrod" }}>Password</Form.Label>
                 <Form.Control
-                  type="password"
+                  type="text"
                   placeholder="Password"
                   name="password"
                   onChange={handlePassword}
