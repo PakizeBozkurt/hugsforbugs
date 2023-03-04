@@ -7,7 +7,10 @@ import Login from "./Login";
 import AvailableTrainees from "./AvailableTrainees";
 import UserProfile from "./UserProfile";
 import MyAvailability from "./MyAvailability";
+<<<<<<< HEAD
 import AllUsers from "./AllUsers";
+=======
+>>>>>>> f0992b5 (Myavailability component added)
 function Navigator() {
   return (
     <div>
@@ -19,8 +22,11 @@ function Navigator() {
         <Route path="/createavailability" element={<CreateAvailability />}/>
         <Route path="/profile" element={<UserProfile />}/>
         <Route path="/myavailability" element={<MyAvailability />}/>
+<<<<<<< HEAD
         <Route path="/allusers" element={<AllUsers />}/>
         
+=======
+>>>>>>> f0992b5 (Myavailability component added)
       </Routes>
     </div>
   );
