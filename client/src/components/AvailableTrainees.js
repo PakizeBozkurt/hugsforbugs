@@ -5,7 +5,7 @@ import ResultPage from "./ResultPage";
 import Logout from "./Logout";
 import { Link } from "react-router-dom";
 import AvailabilityCards from "./AvailabilityCards";
-
+import NavBar from "./NavBar";
 
 function AvailableTrainees() {
 	const [trainees, setTrainees] = useState([]);
@@ -47,6 +47,9 @@ function AvailableTrainees() {
 	}
 
 	return (<div>
+		<div>
+			<NavBar />
+		</div>
 		{trainees.length <=1 ? (<div>
 			<ResultPage filter={setFilter}/>
 		</div>) :(<div>
