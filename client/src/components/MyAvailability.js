@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
+import Footer from "./Footer/Footer";
 
 const MyAvailability = () => {
     const [myDate, setMyDates] = useState([]);
@@ -43,6 +44,7 @@ const MyAvailability = () => {
                                                     <strong>Topic: </strong>
                                                     {date.topic}
                                                 </p>
+                                                <Footer />
                                             </div>
                                         </div>
                                     </div>
