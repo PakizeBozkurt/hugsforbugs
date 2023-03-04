@@ -45,7 +45,7 @@ function AvailableTrainees() {
 
 	return (<div>
 		{trainees.length <=1 ? (<div>
-			<ResultPage filter={setFilter}/>
+		<ResultPage filter={setFilter}/>
 		</div>) :(<div>
 			<h1 style={{ color: "yellow", textAlign: "center" }}>Trainees with matching availability</h1>
 			<div className="container">
