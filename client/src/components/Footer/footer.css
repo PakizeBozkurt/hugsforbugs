@@ -1,21 +1,13 @@
-/* Set a minimum height for the body element */
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column-reverse;
-}
-
-/* Set the main content element to flex-grow */
-.main-content {
-  flex-grow: 1;
-}
-
 /* Footer styles */
 footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   background-color: #070707;
   padding: 10px 0;
-  margin-top: auto; 
 }
+
 
 footer h3 {
   color: #fff;
