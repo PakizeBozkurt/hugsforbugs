@@ -9,6 +9,7 @@ import {
   faLinkedin,
   faGoogle,
 } from "@fortawesome/free-brands-svg-icons";
+import "./footer.css";
 
 function Footer() {
   return (
@@ -49,7 +50,7 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <div className="col-md-8 text-right">
+        <div className="col-md-8 text-centre">
           <p>
             <span> &copy; {new Date().getFullYear()} All rights reserved</span>{" "}
             | <span>Registered UK and Scottish charity</span> |{" "}
