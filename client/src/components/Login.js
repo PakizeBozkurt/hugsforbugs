@@ -43,7 +43,7 @@ const Login = () => {
         if (data.token) {
           localStorage.setItem("token", data.token);
           localStorage.setItem("email", email);
-          localStorage.setItem("name", name);
+          localStorage.setItem("name", data.name);
           localStorage.setItem("id", data.id);
           window.location.href = "/createavailability";
         } else {
