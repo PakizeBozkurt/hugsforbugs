@@ -14,14 +14,19 @@
   min-height: 100vh; 
   padding: 100px; 
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background: #111;
+  background: #393053;
   color: #fff;
   z-index: 2;
 }
 .header{
   text-transform: uppercase;
+  font-size: 4em;
+  font-weight: 800;
+  line-height: 1em; 
+  letter-spacing: 2px;
 }
 .showcase video{
   position: absolute;
@@ -36,11 +41,15 @@
 .text{
   position: relative;
   z-index: 10;
+  text-align: center;
 }
 .btn-wrapper{
   position: relative;
   z-index: 10;
+  display: flex;
+  justify-content: space-between;
 }
+
 .overlay{
   position: absolute;
   top: 0; 
@@ -49,6 +58,20 @@
   height: 459px; 
   background: linear-gradient(180deg, #1F1E1E 0%, rgba(31, 30, 30, 0) 100%);
 }
+.text h4{
+  font-size: 2em; 
+  font-weight: 600;
+  line-height: 1em;
+}
+.text p{
+  font-size: 1em;
+  max-width: 600px;
+  text-align: center;
+  color: #111; 
+  margin-top: 16em;
+  font-weight: 700;
+}
+
 
 
 
