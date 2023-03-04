@@ -1,6 +1,7 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import Footer from "./Footer/Footer";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
@@ -121,6 +122,7 @@ const Register = () => {
                 Back
               </Button>
             </Form>
+            <Footer />
           </div>
         </div>
       </div>

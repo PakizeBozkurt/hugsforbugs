@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Headings from "./Heading";
 import Subheading from "./Subheading";
+import Footer from "./Footer/Footer";
 
 function Home() {
   return (
@@ -38,6 +39,7 @@ function Home() {
       <video className="video" autoPlay loop muted>
         <source src={vid} type="video/mp4" />
       </video>
+      <Footer />
     </div>
   );
 }
