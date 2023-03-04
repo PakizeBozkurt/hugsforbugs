@@ -10,29 +10,20 @@ import Subheading from "./Subheading";
 function Home() {
   return (
     <div>
-      {/* <img
-					className="logo"
-					data-qa="logo"
-					src={logo}
-					alt="Just the React logo"
-				/>
-			 */}
-      <Headings />
-      <Subheading />
-      <p>Find your Study Buddy</p>
-      <p>
-        The Study Buddy is an idea to help you with your learning by sharing
-        experiences with other CYF trainees taking the same goal. Meet and study with students from all classes . Create your very own personal timers and join
-        motivated students from all CYF trainees to boost your productivity and
-        find your study flow.
-      </p>
+    <div className = "text">
+      <h1>Study Buddies</h1>
+      <h4>Boost Your Productivity</h4>
+      <p>Check availability and connect with friends and other CYF trainees.</p>
+      <p>Study together or join study groups</p>
+      <p>Make collaboration easier and more productive</p>
+    </div>
 			<div>
       <button>
         <Link to={"/login"}>Login</Link>
       </button>
 			</div>
 			<span>
-			<Button className="button" variant="primary" size="lg">
+			<Button>
         <Link to={"/register"}>Register</Link>
       </Button>{" "}
 			</span>
