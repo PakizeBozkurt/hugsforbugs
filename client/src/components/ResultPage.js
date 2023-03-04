@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from "react-bootstrap/Button";
-import Logout from './Logout';
+
 const ResultPage = (props) => {
  const handleBack=(e)=>{
      e.preventDefault();
@@ -20,10 +20,6 @@ const ResultPage = (props) => {
                 <Button onClick={handleBack} variant="primary" type="submit">
                     Back
                 </Button>
-                <Button onClick={handleAll} variant="primary" type="submit">
-                    All Available
-                </Button>
-                <Logout />
             </div>
         </div>
     );
