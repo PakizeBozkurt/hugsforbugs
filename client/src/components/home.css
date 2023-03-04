@@ -44,10 +44,19 @@
   text-align: center;
 }
 .btn-wrapper{
-  position: relative;
+  /* position: relative; */
   z-index: 10;
-  display: flex;
-  justify-content: space-between;
+}
+.btn-wrapper button{
+  font-size: 1em; 
+  padding: 10px 50px; 
+  border-radius: 6px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 10px;
+}
+.login{
+  background-color: ;
 }
 
 .overlay{
@@ -80,13 +89,5 @@
 
 
 
-/* .video {
-  position: absolute;
-  width: 100%;
-  left: 50%;
-  top: 50%;
-  height: 100%;
-  object-fit: cover;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-} */
+
+
