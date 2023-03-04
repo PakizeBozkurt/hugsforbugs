@@ -6,6 +6,7 @@ import Register from "./Register";
 import Login from "./Login";
 import AvailableTrainees from "./AvailableTrainees";
 import UserProfile from "./UserProfile";
+import MyAvailability from "./MyAvailability";
 function Navigator() {
   return (
     <div>
@@ -16,6 +17,7 @@ function Navigator() {
         <Route path="/home" element={<AvailableTrainees />}/>
         <Route path="/createavailability" element={<CreateAvailability />}/>
         <Route path="/profile" element={<UserProfile />}/>
+        <Route path="/myavailability" element={<MyAvailability />}/>
       </Routes>
     </div>
   );

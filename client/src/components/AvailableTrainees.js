@@ -1,8 +1,6 @@
-
 import React,{useState,useEffect} from "react";
 import Button from "react-bootstrap/Button";
 import ResultPage from "./ResultPage";
-import Logout from "./Logout";
 import { Link } from "react-router-dom";
 import AvailabilityCards from "./AvailabilityCards";
 import NavBar from "./NavBar";
@@ -96,15 +94,6 @@ function AvailableTrainees() {
 				<span>
 					<div className="col-md-6">
 						<div className="btn-group" role="group" aria-label="Basic example">
-							<Logout />
-							<button
-								className="btn btn-outline-info"
-								style={{ float: "right", margin: "10px" }}
-							>
-								<Link to="/availability" style={{ textDecoration: "none" }}>
-									Add Availability
-								</Link>
-							</button>
 						</div>
 					</div>
 				</span>
