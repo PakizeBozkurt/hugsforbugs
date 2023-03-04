@@ -1,14 +1,11 @@
-import React,{useState,useEffect} from "react";
-import Button from "react-bootstrap/Button";
+import React, {useEffect, useState} from 'react';
 import ResultPage from "./ResultPage";
-import { Link } from "react-router-dom";
-import AvailabilityCards from "./AvailabilityCards";
 import NavBar from "./NavBar";
-
-function AvailableTrainees() {
-	const [trainees, setTrainees] = useState([]);
+import AvailabilityCards from './AvailabilityCards';
+const AllUsers = () => {
+  const [trainees, setTrainees] = useState([]);
 	const [search, setSearch] = useState("");
-	const [filter, setFilter] = useState("daily");
+	const [filter, setFilter] = useState("monthly");
 
 	useEffect(() => {
 		fetch(
@@ -127,7 +124,6 @@ function AvailableTrainees() {
 		</div>)}
 		</div>
 	);
-}
+};
 
-export default AvailableTrainees;
-
+export default AllUsers;

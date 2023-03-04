@@ -1,8 +1,8 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 const eye = <FontAwesomeIcon icon={faEye} />;
 
@@ -43,6 +43,7 @@ const Login = () => {
         if (data.token) {
           localStorage.setItem("token", data.token);
           localStorage.setItem("email", email);
+          localStorage.setItem("name", data.name);
           localStorage.setItem("id", data.id);
           window.location.href = "/createavailability";
         } else {
