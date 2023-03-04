@@ -19,23 +19,22 @@ function Home() {
 			 */}
       <Headings />
       <Subheading />
-      <p>Find your Study Buddy</p>
+
       <p>
-        The Study Buddy is an idea to help you with your learning by sharing
-        experiences with other CYF trainees taking the same goal. Meet and study with students from all classes . Create your very own personal timers and join
-        motivated students from all CYF trainees to boost your productivity and
-        find your study flow.
+        Check availability and connect with friends and other CYF trainees.
+        Study together or join study groups. Make collaboration easier and more
+        productive.
       </p>
-			<div>
-      <button>
-        <Link to={"/login"}>Login</Link>
-      </button>
-			</div>
-			<span>
-			<Button className="button" variant="primary" size="lg">
-        <Link to={"/register"}>Register</Link>
-      </Button>{" "}
-			</span>
+      <div>
+        <button>
+          <Link to={"/login"}>Login</Link>
+        </button>
+      </div>
+      <span>
+        <Button className="button" variant="primary" size="lg">
+          <Link to={"/register"}>Register</Link>
+        </Button>{" "}
+      </span>
       <video className="video" autoPlay loop muted>
         <source src={vid} type="video/mp4" />
       </video>
