@@ -2,8 +2,23 @@ import express, { Router } from "express";
 import helmet from "helmet";
 import morgan from "morgan";
 import path from "path";
-
+const cors = require("cors");
+const app = express();
+app.use(express.json());
 import logger from "./logger";
+
+export const crs = () => {
+app.use(
+	cors({
+		accessControlAllowOrigin: "*",
+		accessControlAllowMethods: "GET, POST, PUT, DELETE, OPTIONS",
+		accessControlAllowHeaders:
+			"Origin, X-Requested-With, Content-Type, Accept, Authorization",
+		accessControlAllowCredentials: true,
+	})
+);
+
+};
 
 export const clientRouter = (apiRoot) => {
 	const staticDir = path.join(__dirname, "..", "static");
@@ -39,3 +54,28 @@ export const logErrors = () => (err, _, res, next) => {
 	logger.error("%O", err);
 	res.sendStatus(500);
 };
+
+//Create a middleware function to handle errors that are thrown in the try-catch blocks.
+
+// function handleError(res, err) {
+// 	console.error(err);
+// 	res.status(500).json({ errors: [{ msg: "Server error" }] });
+//}
+
+//Create a middleware function to handle authentication so that it can be reused across endpoints.
+
+// function authenticate(req, res, next) {
+// 	const token = req.headers.authorization;
+// 	if (!token) {
+// 		return res.status(401).json({ message: "Unauthorized" });
+// 	}
+
+// 	jwt.verify(token, secret, (error, decoded) => {
+// 		if (error) {
+// 			return res.status(401).json({ message: "Unauthorized" });
+// 		}
+
+// 		req.user = decoded;
+// 		next();
+// 	});
+// }

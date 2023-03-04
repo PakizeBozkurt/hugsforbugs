@@ -2,11 +2,16 @@ import React from "react";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
+const eye = <FontAwesomeIcon icon={faEye} />;
+
 const Register = () => {
   const [name, setFirstName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [errorMessage, setErrorMessage] = React.useState("");
+  const [passwordShown, setPasswordShown] = React.useState(false);
   const handleChange = (e) => {
     if (e.target.name === "firstName") {
       setFirstName(e.target.value);
@@ -17,7 +22,9 @@ const Register = () => {
     }
   };
 
-
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(passwordShown ? false : true);
+  };
   const register = (e) => {
     e.preventDefault();
     const user = {
@@ -43,7 +50,9 @@ const Register = () => {
         } else if (!email.includes("@")) {
           setErrorMessage("Please enter a valid email");
         } else if (password.length < 6) {
-          setErrorMessage("Please enter a password that is at least 6 characters");
+          setErrorMessage(
+            "Please enter a password that is at least 6 characters"
+          );
         } else {
           setErrorMessage("Fill in all fields");
         }
@@ -85,9 +94,11 @@ const Register = () => {
                 />
               </Form.Group>
               <Form.Group controlId="formBasicPassword">
-                <Form.Label style={{ color: "goldenrod" }}>Password</Form.Label>
+                <Form.Label style={{ color: "goldenrod" }}>
+                  Password <i onClick={togglePasswordVisiblity}>{eye}</i>
+                </Form.Label>
                 <Form.Control
-                  type="text"
+                  type={passwordShown ? "text" : "password"}
                   placeholder="Password"
                   name="password"
                   onChange={handleChange}
@@ -118,5 +129,3 @@ const Register = () => {
 };
 
 export default Register;
-
-

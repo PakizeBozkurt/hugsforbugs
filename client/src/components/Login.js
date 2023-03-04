@@ -2,16 +2,24 @@ import React from "react";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
+const eye = <FontAwesomeIcon icon={faEye} />;
+
 const Login = () => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [err, setErr] = React.useState(false);
-
+  const [passwordShown, setPasswordShown] = React.useState(false);
+  
   const handleEmail = (e) => {
     setEmail(e.target.value);
   };
   const handlePassword = (e) => {
     setPassword(e.target.value);
+  };
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(passwordShown ? false : true);
   };
   const handleBack = (e) => {
     e.preventDefault();
@@ -36,7 +44,7 @@ const Login = () => {
           localStorage.setItem("token", data.token);
           localStorage.setItem("email", email);
           localStorage.setItem("id", data.id);
-          window.location.href = "/home";
+          window.location.href = "/createavailability";
         } else {
           alert("Wrong email or password");
           window.location.reload();
@@ -64,9 +72,11 @@ const Login = () => {
                 />
               </Form.Group>
               <Form.Group controlId="formBasicPassword">
-                <Form.Label style={{ color: "goldenrod" }}>Password</Form.Label>
+                <Form.Label style={{ color: "goldenrod" }}>
+                  Password <i onClick={togglePasswordVisiblity}>{eye}</i>
+                </Form.Label>
                 <Form.Control
-                  type="text"
+                  type={passwordShown ? "text" : "password"}
                   placeholder="Password"
                   name="password"
                   onChange={handlePassword}
