@@ -54,7 +54,11 @@ const Login = () => {
       .then((data) => {
         if (data.token) {
           localStorage.setItem("token", data.token);
+<<<<<<< HEAD
           localStorage.setItem("email", data.email);
+=======
+          localStorage.setItem("email", email);
+>>>>>>> 19b3efb (NavBar called)
           localStorage.setItem("name", data.name);
           localStorage.setItem("id", data.id);
           window.location.href = "/createavailability";
