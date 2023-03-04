@@ -10,6 +10,7 @@ const Register = () => {
   const [name, setFirstName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [errorMessage, setErrorMessage] = React.useState("");
   const [passwordShown, setPasswordShown] = React.useState(false);
   const handleChange = (e) => {
     if (e.target.name === "firstName") {
@@ -20,6 +21,7 @@ const Register = () => {
       setPassword(e.target.value);
     }
   };
+
   const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
   };
@@ -40,18 +42,19 @@ const Register = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-
         if (data.msg === "User created") {
-          alert("User created");
+          setErrorMessage("User created");
           window.location.href = "/login";
         } else if (data.errors[0].msg === "User already exists") {
-          alert("User already exists");
+          setErrorMessage("User already exists");
         } else if (!email.includes("@")) {
-          alert("Please enter a valid email");
+          setErrorMessage("Please enter a valid email");
         } else if (password.length < 6) {
-          alert("Please enter a password that is at least 6 characters");
+          setErrorMessage(
+            "Please enter a password that is at least 6 characters"
+          );
         } else {
-          alert("Fill in all fields");
+          setErrorMessage("Fill in all fields");
         }
       })
       .catch((err) => console.log(err));
@@ -66,6 +69,7 @@ const Register = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-6 mt-5 mx-auto">
+            <h5>{errorMessage}</h5>
             <Form style={{ width: "50%", margin: "auto" }}>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label style={{ color: "goldenrod" }}>
