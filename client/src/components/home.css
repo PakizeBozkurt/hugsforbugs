@@ -7,6 +7,14 @@
   font-family: 'Poppins', sans-serif;
 }
 
+body{
+  --white: #fff; 
+  --navyBlue: #15485F; 
+  --black: #111; 
+  --lightGray: #393053; 
+  --lineGradientShadow: 180deg, #1F1E1E 0%, rgba(31, 30, 30, 0) 100%; 
+}
+
 .showcase{
   position: absolute;
   right: 0; 
@@ -17,8 +25,8 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background: #393053;
-  color: #fff;
+  background: var(--lightGray);
+  color: var(--white);
   z-index: 2;
 }
 .header{
@@ -44,7 +52,6 @@
   text-align: center;
 }
 .btn-wrapper{
-  /* position: relative; */
   z-index: 10;
 }
 .btn-wrapper button{
@@ -54,9 +61,19 @@
   text-transform: uppercase;
   font-weight: 600;
   margin: 10px;
+  letter-spacing: 2px;
+  transition: 0.2s;
+}
+.btn-wrapper button:hover{
+  letter-spacing: 7px;
 }
 .login{
-  background-color: ;
+  background-color: var(--navyBlue);
+  color: var(--white);
+}
+.register{
+  background-color: var(--black);
+  color: var(--white);
 }
 
 .overlay{
@@ -65,7 +82,7 @@
   left: 0;
   width: 100%;
   height: 459px; 
-  background: linear-gradient(180deg, #1F1E1E 0%, rgba(31, 30, 30, 0) 100%);
+  background: linear-gradient(var(--lineGradientShadow));
 }
 .text h4{
   font-size: 2em; 
@@ -76,7 +93,7 @@
   font-size: 1em;
   max-width: 600px;
   text-align: center;
-  color: #111; 
+  color: var(--black); 
   margin-top: 16em;
   font-weight: 700;
 }
