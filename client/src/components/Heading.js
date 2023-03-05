@@ -1,9 +1,11 @@
 import React from "react";
 
-function Heading() {
+function Heading(props) {
+  const TagName = `h${props.level}`;
+
   return (
     <div>
-      <h1>Study buddies</h1>
+      <TagName>{props.children}</TagName>
     </div>
   );
 }
