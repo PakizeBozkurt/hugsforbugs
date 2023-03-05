@@ -1,25 +1,17 @@
 import React from "react";
-// import logo from "/Users/nagehan/Documents/hugsforbugs/client/src/components/logo.png";
 import vid from "./pexels-c-technical-6334253.mp4";
 import "./home.css";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import Headings from "./Heading";
-import Subheading from "./Subheading";
+import Heading from "./Heading";
 import Footer from "./Footer/Footer";
+import content from "./content";
 
 function Home() {
   return (
     <div>
-      {/* <img
-					className="logo"
-					data-qa="logo"
-					src={logo}
-					alt="Just the React logo"
-				/>
-			 */}
-      <Headings />
-      <Subheading />
+      <Heading level={1}>{content.home.title}</Heading>
+      <Heading level={2}>{content.home.subTitle}</Heading>
 
       <p>
         Check availability and connect with friends and other CYF trainees.
