@@ -162,6 +162,7 @@ const Register = () => {
           Back
         </Button>
       </Form>
+      <Footer />
     </div>
   );
 };
