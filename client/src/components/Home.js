@@ -4,6 +4,7 @@ import "./home.css";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Heading from "./Heading";
+import Subheading from "./Subheading";
 import Footer from "./Footer/Footer";
 import content from "./content";
 
@@ -11,13 +12,9 @@ function Home() {
   return (
     <div>
       <Heading level={1}>{content.home.title}</Heading>
-      <Heading level={2}>{content.home.subTitle}</Heading>
+      <Subheading>{content.home.subtitle}</Subheading>
 
-      <p>
-        Check availability and connect with friends and other CYF trainees.
-        Study together or join study groups. Make collaboration easier and more
-        productive.
-      </p>
+      <p>{content.home.text}</p>
       <div>
         <button>
           <Link to={"/login"}>Login</Link>
