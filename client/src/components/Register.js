@@ -76,6 +76,7 @@ const Register = () => {
             <Form>
               <Form.Group className="input-field" controlId="formBasicEmail">
                 <Form.Control
+                  className="input"
                   type="text"
                   placeholder="Full name..."
                   name="firstName"
@@ -85,39 +86,43 @@ const Register = () => {
 
               <Form.Group className="input-field" controlId="formBasicEmail">
                 <Form.Control
+                  className="input"
                   type="email"
                   placeholder="Enter email..."
                   name="email"
                   onChange={handleChange}
                 />
               </Form.Group>
-              <Form.Group className="input-field"  controlId="formBasicPassword">
-                <div className="Visibility-toggle">
-                  <i onClick={togglePasswordVisiblity}>{eye}</i>
-                </div>
+              <Form.Group className="input-field" controlId="formBasicPassword">
                 <Form.Control
+                  className="input"
                   type={passwordShown ? "text" : "password"}
                   placeholder="Password"
                   name="password"
                   onChange={handleChange}
                 />
               </Form.Group>
-              <Button
-                variant="outline-success"
-                // style={{ margin: "10px" }}
-                type="submit"
-                onClick={register}
-              >
-                Sign up
-              </Button>
-              <Button
-                variant="outline-success"
-                // style={{ margin: "10px" }}
-                type="submit"
-                onClick={handleBack}
-              >
-                Cancel
-              </Button>
+              <div className="Visibility-toggle">
+                <i onClick={togglePasswordVisiblity}>{eye}</i>
+              </div>
+              <div className="btn">
+                <button className="cancel-btn"
+                  variant="outline-success"
+                  // style={{ margin: "10px" }}
+                  type="submit"
+                  onClick={handleBack}
+                >
+                  Cancel
+                </button>
+                <button className="signup-btn"
+                  variant="outline-success"
+                  // style={{ margin: "10px" }}
+                  type="submit"
+                  onClick={register}
+                >
+                  Sign up
+                </button>
+              </div>
             </Form>
             {/* <Footer /> */}
           </div>
