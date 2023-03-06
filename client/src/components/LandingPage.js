@@ -1,5 +1,4 @@
 import React from "react";
-// import logo from "/Users/nagehan/Documents/hugsforbugs/client/src/components/logo.png";
 import vid from "./pexels-c-technical-6334253.mp4";
 import "./home.css";
 import { Link } from "react-router-dom";
@@ -8,19 +7,11 @@ import Headings from "./Heading";
 import Subheading from "./Subheading";
 import Footer from "./Footer/Footer";
 
-function Home() {
+function LandingPage() {
   return (
     <div>
-      {/* <img
-					className="logo"
-					data-qa="logo"
-					src={logo}
-					alt="Just the React logo"
-				/>
-			 */}
       <Headings />
       <Subheading />
-
       <p>
         Check availability and connect with friends and other CYF trainees.
         Study together or join study groups. Make collaboration easier and more
@@ -44,4 +35,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default LandingPage;
