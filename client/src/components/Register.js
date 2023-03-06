@@ -74,7 +74,7 @@ const Register = () => {
           <div className="col-md-6 mt-5 mx-auto">
             <h5>{errorMessage}</h5>
             <Form>
-              <Form.Group controlId="formBasicEmail">
+              <Form.Group className="input-field" controlId="formBasicEmail">
                 <Form.Control
                   type="text"
                   placeholder="Full name..."
@@ -83,7 +83,7 @@ const Register = () => {
                 />
               </Form.Group>
 
-              <Form.Group controlId="formBasicEmail">
+              <Form.Group className="input-field" controlId="formBasicEmail">
                 <Form.Control
                   type="email"
                   placeholder="Enter email..."
@@ -91,7 +91,7 @@ const Register = () => {
                   onChange={handleChange}
                 />
               </Form.Group>
-              <Form.Group controlId="formBasicPassword">
+              <Form.Group className="input-field"  controlId="formBasicPassword">
                 <div className="Visibility-toggle">
                   <i onClick={togglePasswordVisiblity}>{eye}</i>
                 </div>

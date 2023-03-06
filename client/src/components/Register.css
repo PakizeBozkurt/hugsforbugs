@@ -21,7 +21,15 @@ h1{
 
 Form{
   box-sizing: border-box;
-  color:red;
+  /* border: 2px solid #264960; */
+}
+.input-field{
+  /* border: 2px solid #264960;
+  padding: 2px; */
+}
+input{
+    border: 2px solid #264960;
+    border-radius: 0;
 }
 
 
