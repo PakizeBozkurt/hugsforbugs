@@ -2,7 +2,7 @@ import React from "react";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Footer from "./Footer/Footer";
+// import Footer from "./Footer/Footer";
 
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 const eye = <FontAwesomeIcon icon={faEye} />;
@@ -101,7 +101,7 @@ const Login = () => {
                 Back
               </Button>
             </Form>
-            <Footer />
+            {/* <Footer /> */}
           </div>
         </div>
       </div>

@@ -1,7 +1,8 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import Footer from "./Footer/Footer";
+// import Footer from "./Footer/Footer";
+import "./Register.css"; 
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
@@ -68,36 +69,32 @@ const Register = () => {
   return (
     <div>
       <div className="container">
+        <h1>Register</h1>
         <div className="row">
           <div className="col-md-6 mt-5 mx-auto">
             <h5>{errorMessage}</h5>
-            <Form style={{ width: "50%", margin: "auto" }}>
+            <Form>
               <Form.Group controlId="formBasicEmail">
-                <Form.Label style={{ color: "goldenrod" }}>
-                  First Name
-                </Form.Label>
                 <Form.Control
                   type="text"
-                  placeholder="Enter First Name"
+                  placeholder="Full name..."
                   name="firstName"
                   onChange={handleChange}
                 />
               </Form.Group>
+
               <Form.Group controlId="formBasicEmail">
-                <Form.Label style={{ color: "goldenrod" }}>
-                  Email address
-                </Form.Label>
                 <Form.Control
                   type="email"
-                  placeholder="Enter email"
+                  placeholder="Enter email..."
                   name="email"
                   onChange={handleChange}
                 />
               </Form.Group>
               <Form.Group controlId="formBasicPassword">
-                <Form.Label style={{ color: "goldenrod" }}>
-                  Password <i onClick={togglePasswordVisiblity}>{eye}</i>
-                </Form.Label>
+                <div className="Visibility-toggle">
+                  <i onClick={togglePasswordVisiblity}>{eye}</i>
+                </div>
                 <Form.Control
                   type={passwordShown ? "text" : "password"}
                   placeholder="Password"
@@ -107,22 +104,22 @@ const Register = () => {
               </Form.Group>
               <Button
                 variant="outline-success"
-                style={{ margin: "10px" }}
+                // style={{ margin: "10px" }}
                 type="submit"
                 onClick={register}
               >
-                Register
+                Sign up
               </Button>
               <Button
                 variant="outline-success"
-                style={{ margin: "10px" }}
+                // style={{ margin: "10px" }}
                 type="submit"
                 onClick={handleBack}
               >
-                Back
+                Cancel
               </Button>
             </Form>
-            <Footer />
+            {/* <Footer /> */}
           </div>
         </div>
       </div>
