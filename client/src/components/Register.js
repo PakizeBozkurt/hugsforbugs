@@ -2,7 +2,7 @@ import React from "react";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 // import Footer from "./Footer/Footer";
-import "./Register.css"; 
+import "./Register.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
@@ -25,6 +25,7 @@ const Register = () => {
   };
 
   const togglePasswordVisiblity = () => {
+    // this.toggle("fa-eye-slash")
     setPasswordShown(passwordShown ? false : true);
   };
   const register = (e) => {
@@ -93,7 +94,10 @@ const Register = () => {
                   onChange={handleChange}
                 />
               </Form.Group>
-              <Form.Group className="input-field" controlId="formBasicPassword">
+              <Form.Group
+                className="input-field password-container"
+                controlId="formBasicPassword"
+              >
                 <Form.Control
                   className="input"
                   type={passwordShown ? "text" : "password"}
@@ -101,12 +105,11 @@ const Register = () => {
                   name="password"
                   onChange={handleChange}
                 />
-              </Form.Group>
-              <div className="Visibility-toggle">
                 <i onClick={togglePasswordVisiblity}>{eye}</i>
-              </div>
+              </Form.Group>
               <div className="btn">
-                <button className="cancel-btn"
+                <button
+                  className="cancel-btn"
                   variant="outline-success"
                   // style={{ margin: "10px" }}
                   type="submit"
@@ -114,7 +117,8 @@ const Register = () => {
                 >
                   Cancel
                 </button>
-                <button className="signup-btn"
+                <button
+                  className="signUp-btn"
                   variant="outline-success"
                   // style={{ margin: "10px" }}
                   type="submit"
