@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Footer from "./Footer/Footer";
+// import Footer from "./Footer/Footer";
 
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import Register from "./Register";
@@ -129,7 +129,7 @@ const Login = () => {
           Back
         </Button>
       </Form>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
