@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
-import Footer from "./Footer/Footer";
+import MyAvailabilityCards from "./MyAvailabilityCards";
 
 const MyAvailability = () => {
-  const [myDate, setMyDates] = useState([]);
-
+  const [myDates, setMyDates] = useState([]);
   useEffect(() => {
     fetch(
       `https://study-buddies.onrender.com/availability/${localStorage.getItem(
@@ -24,7 +23,6 @@ const MyAvailability = () => {
       })
       .catch((err) => console.log(err));
   }, []);
-  console.log(myDate);
 
   return (
     <div>
@@ -35,28 +33,29 @@ const MyAvailability = () => {
       <div>
         <div>
           <div className="container">
-            <div className="card-body">
-              <div className="row">
-                {myDate.map((date) => (
-                  <div className="col-md-4">
-                    <div className="card mb-4 shadow-sm">
-                      <div className="card-body">
-                        <p className="card-text">
-                          <strong>Date: </strong>
-                          {new Date(
-                            date.availability_date
-                          ).toLocaleDateString()}
-                        </p>
-                        <p className="card-text">
-                          <strong>Topic: </strong>
-                          {date.topic}
-                        </p>
-                        <Footer />
-                      </div>
+            <div className="row">
+              {myDates.map((date) => {
+                return (
+                  <div className="col-md-6">
+                    <div
+                      className="card mb-4 shadow-sm"
+                      style={{
+                        background: "darkgoldenrod",
+                        border: "black solid 1px",
+                        margin: "2px",
+                        padding: "2px",
+                      }}
+                    >
+                      <MyAvailabilityCards
+                        key={date.id}
+                        date={date}
+                        dates={myDates}
+                        setDates={setMyDates}
+                      />
                     </div>
                   </div>
-                ))}
-              </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -64,5 +63,4 @@ const MyAvailability = () => {
     </div>
   );
 };
-
 export default MyAvailability;
