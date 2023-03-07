@@ -3,7 +3,7 @@ import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
-// import Footer from "./Footer/Footer";
+import Footer from "./Footer/Footer";
 import "../../src/register.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -162,7 +162,7 @@ const Register = () => {
           Back
         </Button>
       </Form>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

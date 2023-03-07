@@ -3,7 +3,7 @@ import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import NavBar from "./NavBar";
-// import Footer from "./Footer/Footer";
+import Footer from "./Footer/Footer";
 
 function CreateAvailability() {
 	const [date, setDate] = useState(new Date());
@@ -107,7 +107,7 @@ function CreateAvailability() {
                 Back
               </Button>
             </Form>
-            {/* <Footer /> */}
+            <Footer />
           </div>
         </div>
       </div>
