@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
-import Footer from "./Footer/Footer";
+// import Footer from "./Footer/Footer";
 
 const MyAvailability = () => {
   const [myDate, setMyDates] = useState([]);

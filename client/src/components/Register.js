@@ -135,7 +135,7 @@ const Register = () => {
                   variant="outline-success"
                   // style={{ margin: "10px" }}
                   type="submit"
-                  onClick={register}
+                  onClick={handleSubmit}
                 >
                   Sign up
                 </button>
