@@ -1,14 +1,19 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+
 // import Footer from "./Footer/Footer";
 import "./Register.css";
+
+
+
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 const eye = <FontAwesomeIcon icon={faEye} />;
 
 const Register = () => {
+  const [validated, setValidated] = React.useState(false);
   const [name, setFirstName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -28,13 +33,20 @@ const Register = () => {
     // this.toggle("fa-eye-slash")
     setPasswordShown(passwordShown ? false : true);
   };
-  const register = (e) => {
+  const handleSubmit = (e) => {
+    const form = e.currentTarget;
+    if (form.checkValidity() === false) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+
     e.preventDefault();
     const user = {
       name,
       email,
       password,
     };
+
     fetch("https://study-buddies.onrender.com/register", {
       // this API comes from render.com
       method: "POST",
@@ -61,6 +73,7 @@ const Register = () => {
         }
       })
       .catch((err) => console.log(err));
+    setValidated(true);
   };
   const handleBack = (e) => {
     e.preventDefault();
