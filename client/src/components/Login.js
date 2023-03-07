@@ -1,13 +1,9 @@
 import React from "react";
 import { Form } from "react-bootstrap";
+import "./Register.css";
 import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
-import InputGroup from "react-bootstrap/InputGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import Footer from "./Footer/Footer";
-
 import { faEye } from "@fortawesome/free-solid-svg-icons";
-import Register from "./Register";
 const eye = <FontAwesomeIcon icon={faEye} />;
 
 const Login = () => {
@@ -59,9 +55,7 @@ const Login = () => {
           localStorage.setItem("id", data.id);
           window.location.href = "/createavailability";
         } else {
-          alert("Wrong email or password");
-          window.location.reload();
-          setErr(true);
+          setErr("Invalid email or password");
         }
       })
       .catch((err) => console.log(err));
@@ -71,47 +65,53 @@ const Login = () => {
   return (
     <div>
       <div className="container">
+        <h1>Login</h1>
         <div className="row">
           <div className="col-md-6 mt-5 mx-auto">
-            <Form style={{ width: "50%", margin: "auto" }}>
-              <Form.Group controlId="formBasicEmail">
-                <Form.Label style={{ color: "goldenrod" }}>
-                  Email address
-                </Form.Label>
+            <h5>{err}</h5>
+            <Form>
+              <Form.Group className="input-field" controlId="formBasicEmail">
                 <Form.Control
+                  className="input"
                   type="email"
-                  placeholder="Enter email"
+                  placeholder="Enter email..."
                   name="email"
-                  onChange={handleEmail}
+                  onChange={handleChange}
                 />
               </Form.Group>
-              <Form.Group controlId="formBasicPassword">
-                <Form.Label style={{ color: "goldenrod" }}>
-                  Password <i onClick={togglePasswordVisiblity}>{eye}</i>
-                </Form.Label>
+              <Form.Group
+                className="input-field password-container"
+                controlId="formBasicPassword"
+              >
                 <Form.Control
+                  className="input"
                   type={passwordShown ? "text" : "password"}
                   placeholder="Password"
                   name="password"
-                  onChange={handlePassword}
+                  onChange={handleChange}
                 />
+                <i onClick={togglePasswordVisiblity}>{eye}</i>
               </Form.Group>
-              <Button
-                variant="outline-success"
-                style={{ margin: "10px" }}
-                type="submit"
-                onClick={login}
-              >
-                Login
-              </Button>
-              <Button
-                variant="outline-success"
-                style={{ margin: "10px" }}
-                type="submit"
-                onClick={handleBack}
-              >
-                Back
-              </Button>
+              <div className="btn">
+                <button
+                  className="cancel-btn"
+                  variant="outline-success"
+                  // style={{ margin: "10px" }}
+                  type="submit"
+                  onClick={handleBack}
+                >
+                  Cancel
+                </button>
+                <button
+                  className="signUp-btn"
+                  variant="outline-success"
+                  // style={{ margin: "10px" }}
+                  type="submit"
+                  onClick={login}
+                >
+                  Login
+                </button>
+              </div>
             </Form>
             {/* <Footer /> */}
           </div>

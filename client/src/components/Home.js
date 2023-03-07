@@ -3,10 +3,14 @@ import vid from "./pexels-c-technical-6334253.mp4";
 import "./home.css";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+
 import Heading from "./Heading";
 import Subheading from "./Subheading";
 import Footer from "./Footer/Footer";
 import content from "./content";
+
+// import Footer from "./Footer/Footer";
+
 
 function Home() {
 
@@ -29,7 +33,7 @@ function Home() {
           <Link to={"/login"}>Login</Link>
         </button>
       </div>
-      <Footer />
+      {/* <Footer />   */}
     </div>
   );
 }
