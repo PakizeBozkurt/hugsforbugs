@@ -1,24 +1,30 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import Col from "react-bootstrap/Col";
+import InputGroup from "react-bootstrap/InputGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Footer from "./Footer/Footer";
+// import Footer from "./Footer/Footer";
 
 import { faEye } from "@fortawesome/free-solid-svg-icons";
+import Register from "./Register";
 const eye = <FontAwesomeIcon icon={faEye} />;
 
 const Login = () => {
+  const [validated, setValidated] = React.useState(false);
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [err, setErr] = React.useState(false);
   const [passwordShown, setPasswordShown] = React.useState(false);
-  
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
+
+  const handleChange = (e) => {
+    if (e.target.name === "email") {
+      setEmail(e.target.value);
+    } else if (e.target.name === "password") {
+      setPassword(e.target.value);
+    }
   };
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-  };
+
   const togglePasswordVisiblity = () => {
     setPasswordShown(passwordShown ? false : true);
   };
@@ -27,6 +33,11 @@ const Login = () => {
     window.location.href = "/";
   };
   const login = (e) => {
+    const form = e.currentTarget;
+    if (form.checkValidity() === false) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     e.preventDefault();
     const user = {
       email,
@@ -43,7 +54,7 @@ const Login = () => {
       .then((data) => {
         if (data.token) {
           localStorage.setItem("token", data.token);
-          localStorage.setItem("email", email);
+          localStorage.setItem("email", data.email);
           localStorage.setItem("name", data.name);
           localStorage.setItem("id", data.id);
           window.location.href = "/createavailability";
@@ -54,6 +65,7 @@ const Login = () => {
         }
       })
       .catch((err) => console.log(err));
+    setValidated(true);
   };
 
   return (
@@ -101,7 +113,7 @@ const Login = () => {
                 Back
               </Button>
             </Form>
-            <Footer />
+            {/* <Footer /> */}
           </div>
         </div>
       </div>

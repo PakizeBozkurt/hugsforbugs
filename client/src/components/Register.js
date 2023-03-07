@@ -1,13 +1,19 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import Footer from "./Footer/Footer";
+
+// import Footer from "./Footer/Footer";
+import "./Register.css";
+
+
+
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 const eye = <FontAwesomeIcon icon={faEye} />;
 
 const Register = () => {
+  const [validated, setValidated] = React.useState(false);
   const [name, setFirstName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -24,15 +30,23 @@ const Register = () => {
   };
 
   const togglePasswordVisiblity = () => {
+    // this.toggle("fa-eye-slash")
     setPasswordShown(passwordShown ? false : true);
   };
-  const register = (e) => {
+  const handleSubmit = (e) => {
+    const form = e.currentTarget;
+    if (form.checkValidity() === false) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+
     e.preventDefault();
     const user = {
       name,
       email,
       password,
     };
+
     fetch("https://study-buddies.onrender.com/register", {
       // this API comes from render.com
       method: "POST",
@@ -59,6 +73,7 @@ const Register = () => {
         }
       })
       .catch((err) => console.log(err));
+    setValidated(true);
   };
   const handleBack = (e) => {
     e.preventDefault();
@@ -68,61 +83,65 @@ const Register = () => {
   return (
     <div>
       <div className="container">
+        <h1>Register</h1>
         <div className="row">
           <div className="col-md-6 mt-5 mx-auto">
             <h5>{errorMessage}</h5>
-            <Form style={{ width: "50%", margin: "auto" }}>
-              <Form.Group controlId="formBasicEmail">
-                <Form.Label style={{ color: "goldenrod" }}>
-                  First Name
-                </Form.Label>
+            <Form>
+              <Form.Group className="input-field" controlId="formBasicEmail">
                 <Form.Control
+                  className="input"
                   type="text"
-                  placeholder="Enter First Name"
+                  placeholder="Full name..."
                   name="firstName"
                   onChange={handleChange}
                 />
               </Form.Group>
-              <Form.Group controlId="formBasicEmail">
-                <Form.Label style={{ color: "goldenrod" }}>
-                  Email address
-                </Form.Label>
+
+              <Form.Group className="input-field" controlId="formBasicEmail">
                 <Form.Control
+                  className="input"
                   type="email"
-                  placeholder="Enter email"
+                  placeholder="Enter email..."
                   name="email"
                   onChange={handleChange}
                 />
               </Form.Group>
-              <Form.Group controlId="formBasicPassword">
-                <Form.Label style={{ color: "goldenrod" }}>
-                  Password <i onClick={togglePasswordVisiblity}>{eye}</i>
-                </Form.Label>
+              <Form.Group
+                className="input-field password-container"
+                controlId="formBasicPassword"
+              >
                 <Form.Control
+                  className="input"
                   type={passwordShown ? "text" : "password"}
                   placeholder="Password"
                   name="password"
                   onChange={handleChange}
                 />
+                <i onClick={togglePasswordVisiblity}>{eye}</i>
               </Form.Group>
-              <Button
-                variant="outline-success"
-                style={{ margin: "10px" }}
-                type="submit"
-                onClick={register}
-              >
-                Register
-              </Button>
-              <Button
-                variant="outline-success"
-                style={{ margin: "10px" }}
-                type="submit"
-                onClick={handleBack}
-              >
-                Back
-              </Button>
+              <div className="btn">
+                <button
+                  className="cancel-btn"
+                  variant="outline-success"
+                  // style={{ margin: "10px" }}
+                  type="submit"
+                  onClick={handleBack}
+                >
+                  Cancel
+                </button>
+                <button
+                  className="signUp-btn"
+                  variant="outline-success"
+                  // style={{ margin: "10px" }}
+                  type="submit"
+                  onClick={register}
+                >
+                  Sign up
+                </button>
+              </div>
             </Form>
-            <Footer />
+            {/* <Footer /> */}
           </div>
         </div>
       </div>

@@ -9,6 +9,15 @@ import Footer from "./Footer/Footer";
 import content from "./content";
 
 function Home() {
+
+  function handleRegisterBtn(){
+    window.location.href = "/register"; 
+  }
+
+  function handleLoginBtn(){
+    window.location.href = "/login";  
+  }
+
   return (
     <div>
       <Heading level={1}>{content.home.title}</Heading>
@@ -20,14 +29,6 @@ function Home() {
           <Link to={"/login"}>Login</Link>
         </button>
       </div>
-      <span>
-        <Button className="button" variant="primary" size="lg">
-          <Link to={"/register"}>Register</Link>
-        </Button>{" "}
-      </span>
-      <video className="video" autoPlay loop muted>
-        <source src={vid} type="video/mp4" />
-      </video>
       <Footer />
     </div>
   );
