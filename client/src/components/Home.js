@@ -7,7 +7,7 @@ import Headings from "./Heading";
 import Subheading from "./Subheading";
 import Footer from "./Footer/Footer";
 
-function LandingPage() {
+function Home() {
   return (
     <div>
       <Headings />
@@ -35,4 +35,4 @@ function LandingPage() {
   );
 }
 
-export default LandingPage;
+export default Home;

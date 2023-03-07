@@ -19,6 +19,8 @@ const UserInfoMenu = () => {
                  
                     <Dropdown.Item href="/profile">Profile</Dropdown.Item>
                     <Dropdown.Item href="/logout">Logout</Dropdown.Item>
+                    <Dropdown.Item >Help</Dropdown.Item>
+                    <Dropdown.Item >Setting</Dropdown.Item>
                 </Dropdown.Menu>
 
             </Dropdown>

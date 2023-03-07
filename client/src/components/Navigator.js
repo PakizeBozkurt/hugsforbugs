@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router";
-import LandingPage from "./LandingPage";
+import Home from "./Home";
 import CreateAvailability from "./CreateAvailability";
 import Register from "./Register";
 import Login from "./Login";
@@ -12,10 +12,10 @@ function Navigator() {
   return (
     <div>
       <Routes>       
-        <Route path="/*" element={<LandingPage />}/>
+        <Route path="/*" element={<Home />}/>
         <Route path="/register" element={<Register />}/>
         <Route path="/login" element={<Login />}/>
-        <Route path="/home" element={<AvailableTrainees />}/>
+        <Route path="/availabletrainees" element={<AvailableTrainees />}/>
         <Route path="/createavailability" element={<CreateAvailability />}/>
         <Route path="/profile" element={<UserProfile />}/>
         <Route path="/myavailability" element={<MyAvailability />}/>
