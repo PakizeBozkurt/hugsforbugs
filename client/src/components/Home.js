@@ -4,11 +4,7 @@ import vid from "./pexels-c-technical-6334253.mp4";
 import "./home.css";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-<<<<<<< HEAD
 // import Footer from "./Footer/Footer";
-=======
-import Footer from "./Footer/Footer";
->>>>>>> 97a24092f574de643cf25ba3344e899f8790c6a3
 
 function Home() {
 
@@ -46,7 +42,7 @@ function Home() {
         </video>
         <div className="overlay"></div>
       </div>
-      <Footer />
+      {/* <Footer />   */}
     </div>
   );
 }
