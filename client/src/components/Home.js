@@ -1,9 +1,11 @@
 import React from "react";
-// import logo from "/Users/nagehan/Documents/hugsforbugs/client/src/components/logo.png";
+// import logo from "C:Usersm-201OneDriveDesktop\finalProjecthugsforbugsclientsrccomponentslogo.png";
 import vid from "./pexels-c-technical-6334253.mp4";
 import "./home.css";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
+
+import Footer from "./Footer/Footer";
 
 function Home() {
 
@@ -41,6 +43,7 @@ function Home() {
         </video>
         <div className="overlay"></div>
       </div>
+      <Footer />
     </div>
   );
 }
