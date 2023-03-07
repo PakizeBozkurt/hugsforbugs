@@ -16,6 +16,7 @@ function Home() {
         Check availability and connect with friends and other CYF trainees.
         Study together or join study groups. Make collaboration easier and more
         productive.
+        
       </p>
       <div>
         <button>
