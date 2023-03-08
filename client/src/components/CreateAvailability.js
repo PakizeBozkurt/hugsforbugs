@@ -107,7 +107,7 @@ function CreateAvailability() {
                 Back
               </Button>
             </Form>
-            <Footer />
+            {/* <Footer /> */}
           </div>
         </div>
       </div>
