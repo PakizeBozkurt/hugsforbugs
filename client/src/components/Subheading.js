@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-function Subheading(props) {
+function Subheading() {
   return (
     <div>
-      <h2>{props.children}</h2>
+      <h2>Boost your productivity</h2>
     </div>
-  );
+  )
 }
 
 export default Subheading;
