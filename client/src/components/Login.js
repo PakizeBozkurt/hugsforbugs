@@ -1,9 +1,13 @@
 import React from "react";
 import { Form } from "react-bootstrap";
-import "./Register.css";
 import Button from "react-bootstrap/Button";
+import Col from "react-bootstrap/Col";
+import InputGroup from "react-bootstrap/InputGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Footer from "./Footer/Footer";
+
 import { faEye } from "@fortawesome/free-solid-svg-icons";
+import Register from "./Register";
 const eye = <FontAwesomeIcon icon={faEye} />;
 
 const Login = () => {
@@ -55,7 +59,9 @@ const Login = () => {
           localStorage.setItem("id", data.id);
           window.location.href = "/createavailability";
         } else {
-          setErr("Invalid email or password");
+          alert("Wrong email or password");
+          window.location.reload();
+          setErr(true);
         }
       })
       .catch((err) => console.log(err));
@@ -63,60 +69,67 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <div className="container">
-        <h1>Login</h1>
-        <div className="row">
-          <div className="col-md-6 mt-5 mx-auto">
-            <h5>{err}</h5>
-            <Form>
-              <Form.Group className="input-field" controlId="formBasicEmail">
-                <Form.Control
-                  className="input"
-                  type="email"
-                  placeholder="Enter email..."
-                  name="email"
-                  onChange={handleChange}
-                />
-              </Form.Group>
-              <Form.Group
-                className="input-field password-container"
-                controlId="formBasicPassword"
-              >
-                <Form.Control
-                  className="input"
-                  type={passwordShown ? "text" : "password"}
-                  placeholder="Password"
-                  name="password"
-                  onChange={handleChange}
-                />
-                <i onClick={togglePasswordVisiblity}>{eye}</i>
-              </Form.Group>
-              <div className="btn">
-                <button
-                  className="cancel-btn"
-                  variant="outline-success"
-                  // style={{ margin: "10px" }}
-                  type="submit"
-                  onClick={handleBack}
-                >
-                  Cancel
-                </button>
-                <button
-                  className="signUp-btn"
-                  variant="outline-success"
-                  // style={{ margin: "10px" }}
-                  type="submit"
-                  onClick={login}
-                >
-                  Login
-                </button>
-              </div>
-            </Form>
-            {/* <Footer /> */}
-          </div>
-        </div>
-      </div>
+    <div className="container row col-md-6 mt-5 mx-auto">
+      <h2 style={{ fontSize: "2.2em" }} className="text-center text-light">
+        LOGIN
+      </h2>
+      <Form
+        noValidate
+        validated={validated}
+        onSubmit={handleChange}
+        style={{ width: "50%", margin: "auto" }}
+      >
+        <Form.Group as={Col} className="mb-4" controlId="formBasicEmail">
+          <Form.Label className="text-light">Email</Form.Label>
+          <InputGroup hasValidation>
+            <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
+            <Form.Control
+              type="email"
+              placeholder="Enter email"
+              name="email"
+              onChange={handleChange}
+              required
+            />
+            <Form.Control.Feedback type="invalid">
+              Please enter a valid email.
+            </Form.Control.Feedback>
+          </InputGroup>
+        </Form.Group>
+
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label style={{ color: "goldenrod" }}>
+            Password <i onClick={togglePasswordVisiblity}>{eye}</i>
+          </Form.Label>
+          <Form.Control
+            type={passwordShown ? "text" : "password"}
+            placeholder="Password"
+            name="password"
+            onChange={handleChange}
+            minLength={6}
+            required
+          />
+          <Form.Control.Feedback type="invalid">
+            Please provide a valid password.
+          </Form.Control.Feedback>
+        </Form.Group>
+        <Button
+          variant="outline-light"
+          style={{ margin: "10px" }}
+          type="submit"
+          onClick={login}
+        >
+          Login
+        </Button>
+        <Button
+          variant="outline-light"
+          style={{ margin: "10px" }}
+          type="submit"
+          onClick={handleBack}
+        >
+          Back
+        </Button>
+      </Form>
+      <Footer />
     </div>
   );
 };
