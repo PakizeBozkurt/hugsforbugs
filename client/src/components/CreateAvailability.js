@@ -2,6 +2,8 @@ import { useState } from "react";
 import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import NavBar from "./NavBar";
+import Footer from "./Footer/Footer";
 
 function CreateAvailability() {
 	const [date, setDate] = useState(new Date());
@@ -53,11 +55,15 @@ function CreateAvailability() {
 
 	return (
     <div
+	
       style={{
         background:
           "linear-gradient(to right, rgba(102, 126, 234, 0.5), rgba(118, 75, 162, 0.5))",
       }}
     >
+			<div>
+				<NavBar />
+			</div>
       <div className="container">
         <h1 align="center" className="pt-4">
           ADD NEW AVAILABILITY
@@ -101,6 +107,7 @@ function CreateAvailability() {
                 Back
               </Button>
             </Form>
+            <Footer />
           </div>
         </div>
       </div>
