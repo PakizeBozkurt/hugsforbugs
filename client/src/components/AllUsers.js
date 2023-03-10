@@ -53,7 +53,7 @@ const AllUsers = () => {
         </div>
       ) : (
         <div>
-          <h1 style={{ color: "yellow", textAlign: "center", marginTop:"30px" }}>
+          <h1 style={{ color: "black", textAlign: "center", marginTop:"30px" }}>
             Trainees with matching availability
           </h1>
           <div className="container">
