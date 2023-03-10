@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ResultPage from "./ResultPage";
 import NavBar from "./NavBar";
 import AvailabilityCards from "./AvailabilityCards";
+import "./availabilityCards.css";
 
 const AllUsers = () => {
   const [trainees, setTrainees] = useState([]);
@@ -121,9 +122,9 @@ const AllUsers = () => {
             <div className="row">
               {trainees.map((trainee) => {
                 return (
-                  <div className="col-md-4">
+                  <div className="col-md-4 cards">
                     <div
-                      className="card mb-4 shadow-sm"
+                      className="card  mb-4 shadow-sm"
                       style={{
                         background: "#ffffff",
                         border: "none",
