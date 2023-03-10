@@ -5,11 +5,24 @@ function AvailibityCards(props) {
   return (
     <div className="container">
       <div className="card-body">
-        <h2 className="card-text">Name: {props.trainee.name}</h2>
-        <h5 className="card-text">
+        <h2
+          className="card-text"
+          style={{ fontFamily: "sen", fontSize: "32px" }}
+        >
+          Name: {props.trainee.name}
+        </h2>
+        <p
+          className="card-text"
+          style={{ fontFamily: "Roboto", fontSize: "13px" }}
+        >
           Date: {new Date(props.trainee.availability_date).toLocaleDateString()}
-        </h5>
-        <p className="card-text">Topic: {props.trainee.topic}</p>
+        </p>
+        <p
+          className="card-text"
+          style={{ fontFamily: "Roboto", fontSize: "13px" }}
+        >
+          Topic: {props.trainee.topic}
+        </p>
         <div style={{ position: "absolute", right: "8px", bottom: "8px" }}>
           <SendEmail trainee={props.trainee} />
         </div>
