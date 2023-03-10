@@ -55,6 +55,7 @@ const AllUsers = () => {
         <div>
           <h1
             style={{
+              fontFamily: "sen",
               color: "black",
               textAlign: "center",
               marginTop: "100px",
