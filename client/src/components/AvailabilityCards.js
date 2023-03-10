@@ -1,5 +1,6 @@
 import React from "react";
 import SendEmail from "./SendEmail";
+
 function AvailibityCards(props) {
   return (
     <div className="container">
@@ -9,8 +10,9 @@ function AvailibityCards(props) {
           Date: {new Date(props.trainee.availability_date).toLocaleDateString()}
         </h5>
         <p className="card-text">Topic: {props.trainee.topic}</p>
-
-        <SendEmail trainee={props.trainee} />
+        <div style={{ position: "absolute", right: "8px", bottom: "8px" }}>
+          <SendEmail trainee={props.trainee} />
+        </div>
       </div>
     </div>
   );
