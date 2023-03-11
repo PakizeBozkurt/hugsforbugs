@@ -3,7 +3,7 @@ import React from 'react';
 function Subheading() {
   return (
     <div>
-      <h2>Boost your productivity</h2>
+      <h4>Boost your productivity</h4>
     </div>
   )
 }
