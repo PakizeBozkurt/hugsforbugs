@@ -104,7 +104,7 @@ const AllUsers = () => {
                 <div
                   className="btn-group"
                   role="group"
-                  aria-label="Basic example"
+                  aria-label="Buttons to filter results"
                 ></div>
               </div>
             </span>
