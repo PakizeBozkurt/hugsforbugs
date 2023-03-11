@@ -3,6 +3,9 @@ import ResultPage from "./ResultPage";
 import NavBar from "./NavBar";
 import AvailabilityCards from "./AvailabilityCards";
 import "./availabilityCards.css";
+import "./main.css";
+
+
 
 const AllUsers = () => {
   const [trainees, setTrainees] = useState([]);
@@ -54,17 +57,7 @@ const AllUsers = () => {
         </div>
       ) : (
         <div>
-          <h1
-            style={{
-              fontFamily: "sen",
-              color: "black",
-              textAlign: "center",
-              marginTop: "100px",
-              marginBottom: "50px",
-            }}
-          >
-            Trainees with <br /> matching availability
-          </h1>
+          <Heading name={"Available Trainees"} />
           <div className="container">
             <div className="row">
               <div className="col-md-6">
@@ -149,5 +142,11 @@ const AllUsers = () => {
     </div>
   );
 };
+
+
+// There is already heading component 
+function Heading(props) {
+  return <h2 className="heading">{props.name}</h2>;
+}
 
 export default AllUsers;
