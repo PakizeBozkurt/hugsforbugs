@@ -5,8 +5,6 @@ import AvailabilityCards from "./AvailabilityCards";
 import "./availabilityCards.css";
 import "./main.css";
 
-
-
 const AllUsers = () => {
   const [trainees, setTrainees] = useState([]);
   const [search, setSearch] = useState("");
@@ -115,16 +113,8 @@ const AllUsers = () => {
             <div className="row">
               {trainees.map((trainee) => {
                 return (
-                  <div className="col-md-4 cards">
-                    <div
-                      className="card  mb-4 shadow-sm"
-                      style={{
-                        background: "#ffffff",
-                        border: "none",
-                        margin: "2px",
-                        padding: "2px",
-                      }}
-                    >
+                  <div className="col-md-4 cards ">
+                    <div className="card cardDesign mb-4 shadow-sm">
                       <AvailabilityCards
                         key={trainee.id}
                         trainee={trainee}
@@ -143,8 +133,7 @@ const AllUsers = () => {
   );
 };
 
-
-// There is already heading component 
+// There is already heading component
 function Heading(props) {
   return <h2 className="heading">{props.name}</h2>;
 }
