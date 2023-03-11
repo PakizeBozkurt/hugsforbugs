@@ -3,6 +3,13 @@
   transform: scale(1);
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
+  
+}
+.cardDesign{
+  background: #ffffff;
+  border: none;
+  margin: 1px;
+  padding: 1px;
 }
 
 .cards:hover {
@@ -14,6 +21,7 @@
   font-family: sen;
   font-size: 32px;
 }
+
 .cardFont {
   font-family: sen;
   font-size: 13px;
