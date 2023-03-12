@@ -15,11 +15,11 @@ function Navigator() {
         <Route path="/*" element={<Home />}/>
         <Route path="/register" element={<Register />}/>
         <Route path="/login" element={<Login />}/>
-        <Route path="/home" element={<AvailableTrainees />}/>
-        <Route path="/createavailability" element={<CreateAvailability />}/>
+        <Route path="/my-matches" element={<AvailableTrainees />}/>
+        <Route path="/create-availability" element={<CreateAvailability />}/>
         <Route path="/profile" element={<UserProfile />}/>
-        <Route path="/myavailability" element={<MyAvailability />}/>
-        <Route path="/allusers" element={<AllUsers />}/>
+        <Route path="/my-availability" element={<MyAvailability />}/>
+        <Route path="/all-users" element={<AllUsers />}/>
         
       </Routes>
     </div>

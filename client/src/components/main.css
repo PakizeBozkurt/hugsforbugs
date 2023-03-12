@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&family=Sen:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&family=Sen:wght@700&display=swap');
+
+body {
+  background-color: #E3EBEE;
+}
+.heading {
+  font-family: sen;
+  font-size: 40px;
+  color: #000000;
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}

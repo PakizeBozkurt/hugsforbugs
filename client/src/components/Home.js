@@ -1,7 +1,9 @@
 import React from "react";
 import vid from "./pexels-c-technical-6334253.mp4";
 import "./home.css";
-import Heading from "./Heading";
+import { Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import HeadingHome from "./HeadingHome";
 import Subheading from "./Subheading";
 import Footer from "./Footer/Footer";
 
@@ -19,7 +21,7 @@ function Home() {
     <div>
       <div className="showcase">
         <div className="text">
-          <Heading>Study Buddies</Heading>
+          <HeadingHome name={"Study Buddies"}/>
           <Subheading>Boost Your Productivity</Subheading>
           <p>
             Check availability and connect with friends and other CYF trainees.

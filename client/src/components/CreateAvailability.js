@@ -54,18 +54,12 @@ function CreateAvailability() {
   };
 
   return (
-    <div
-      style={{
-        background:
-          "linear-gradient(to right, rgba(102, 126, 234, 0.5), rgba(118, 75, 162, 0.5))",
-      }}
-    >
-      <div>
-        <NavBar />
-      </div>
-      <div className="container">
+    <div>
+      <NavBar />
+
+      <div className="container row col-md-6 mt-5 mx-auto">
         <h1 align="center" className="pt-4">
-          ADD NEW AVAILABILITY
+          AVAILABILITY
         </h1>
         <Form style={{ width: "50%", margin: "auto" }}>
           <Form.Group controlId="formBasicDate">
