@@ -50,7 +50,7 @@ const AllUsers = () => {
       <div>
         <NavBar />
       </div>
-      {trainees.length <= 1 ? (
+      {trainees.length < 1 ? (
         <div>
           <ResultPage filter={setFilter} />
         </div>
