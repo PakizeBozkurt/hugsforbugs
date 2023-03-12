@@ -2,6 +2,7 @@ import React from "react";
 import vid from "./pexels-c-technical-6334253.mp4";
 import "./Home.css";
 import Heading from "./Heading";
+import SendEmail from "./SendEmail";
 import Subheading from "./Subheading";
 import Footer from "./Footer/Footer";
 
@@ -35,10 +36,12 @@ function Home() {
             Register
           </button>
         </div>
+        <SendEmail />
         <video className="video" autoPlay loop muted>
           <source src={vid} type="video/mp4" />
         </video>
         <div className="overlay"></div>
+       
       <Footer />
       </div>
     </div>
