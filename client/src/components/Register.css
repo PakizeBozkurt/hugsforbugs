@@ -23,7 +23,7 @@ Form {
   flex-direction: column;
 }
 .input-field {
-  padding: 1em;
+  padding: 1em 0;
 }
 .input {
   border: 2px solid #264960;

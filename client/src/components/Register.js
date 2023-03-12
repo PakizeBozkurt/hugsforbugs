@@ -4,14 +4,11 @@ import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
 import Footer from "./Footer/Footer";
-
-import "./Register.css";
-
-
-
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
+
+import "./register.css";
+
 const eye = <FontAwesomeIcon icon={faEye} />;
 
 const Register = () => {
@@ -127,7 +124,7 @@ const Register = () => {
                 className="input-field password-container"
                 controlId="fvalidationCustom05"
               >
-                {/* The label eye needs styling */}
+                {/* TODO: The label eye needs styling */}
                 <Form.Label>
                   <i onClick={togglePasswordVisiblity}>{eye}</i>
                 </Form.Label>
@@ -171,7 +168,7 @@ const Register = () => {
                 </button>
               </div>
             </Form>
-            {/* <Footer /> */}
+            <Footer />
           </div>
         </div>
       </div>
