@@ -1,6 +1,6 @@
 import React from "react";
 import vid from "./pexels-c-technical-6334253.mp4";
-import "./Home.css";
+import "./home.css";
 import Heading from "./Heading";
 import Subheading from "./Subheading";
 import Footer from "./Footer/Footer";
