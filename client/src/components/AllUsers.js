@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ResultPage from "./ResultPage";
 import NavBar from "./NavBar";
 import AvailabilityCards from "./AvailabilityCards";
+import Heading from "./Heading";
 import "./availabilityCards.css";
 import "./main.css";
 
@@ -55,7 +56,7 @@ const AllUsers = () => {
         </div>
       ) : (
         <div>
-          <Heading name={"Available Trainees"} />
+          <Heading name={"All Available Trainees"} />
           <div className="container">
             <div className="row">
               <div className="col-md-6">
@@ -132,10 +133,5 @@ const AllUsers = () => {
     </div>
   );
 };
-
-// There is already heading component
-function Heading(props) {
-  return <h2 className="heading">{props.name}</h2>;
-}
 
 export default AllUsers;

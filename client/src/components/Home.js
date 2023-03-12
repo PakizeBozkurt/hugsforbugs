@@ -4,7 +4,7 @@ import vid from "./pexels-c-technical-6334253.mp4";
 import "./home.css";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import Headings from "./Heading";
+import HeadingHome from "./HeadingHome";
 import Subheading from "./Subheading";
 import Footer from "./Footer/Footer";
 
@@ -18,7 +18,7 @@ function Home() {
 					alt="Just the React logo"
 				/>
 			 */}
-      <Headings />
+      <HeadingHome name={"Study Buddies"} />
       <Subheading />
 
       <p>

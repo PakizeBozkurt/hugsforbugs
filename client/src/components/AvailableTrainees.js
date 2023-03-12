@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Button from "react-bootstrap/Button";
 import ResultPage from "./ResultPage";
-import { Link } from "react-router-dom";
 import AvailabilityCards from "./AvailabilityCards";
+import Heading from "./Heading";
 import NavBar from "./NavBar";
 
 function AvailableTrainees() {
@@ -55,16 +54,7 @@ function AvailableTrainees() {
         </div>
       ) : (
         <div>
-          <h1
-            style={{
-              color: "black",
-              textAlign: "center",
-              marginTop: "100px",
-              marginBottom: "50px",
-            }}
-          >
-            Trainees with <br /> matching availability
-          </h1>
+          <Heading name={"All Available Trainees"} />
           <div className="container">
             <div className="row">
               <div className="col-md-6">

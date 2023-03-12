@@ -1,11 +1,7 @@
 import React from "react";
 
-function Heading() {
-  return (
-    <div>
-      <h1>Study buddies</h1>
-    </div>
-  );
+function Heading(props) {
+  return <h2 className="heading">{props.name}</h2>;
 }
 
 export default Heading;
