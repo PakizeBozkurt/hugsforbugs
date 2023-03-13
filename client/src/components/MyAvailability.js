@@ -31,7 +31,17 @@ const MyAvailability = () => {
       <div>
         <NavBar />
       </div>
-      <h1>My Availability</h1>
+      <h1
+        style={{
+          fontFamily: "sen",
+          color: "black",
+          textAlign: "center",
+          marginTop: "100px",
+          marginBottom: "50px",
+        }}
+      >
+        My Availability
+      </h1>
       <div>
         <div>
           <div className="container">

@@ -1,15 +1,14 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-
-// import Footer from "./Footer/Footer";
-import "./Register.css";
-
-
-
-
+import Col from "react-bootstrap/Col";
+import InputGroup from "react-bootstrap/InputGroup";
+import Footer from "./Footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
+
+import "./Register.css";
+
 const eye = <FontAwesomeIcon icon={faEye} />;
 
 const Register = () => {
@@ -29,10 +28,11 @@ const Register = () => {
     }
   };
 
+  // to be fixed
   const togglePasswordVisiblity = () => {
-    // this.toggle("fa-eye-slash")
     setPasswordShown(passwordShown ? false : true);
   };
+
   const handleSubmit = (e) => {
     const form = e.currentTarget;
     if (form.checkValidity() === false) {
@@ -85,46 +85,73 @@ const Register = () => {
       <div className="container">
         <h1>Register</h1>
         <div className="row">
-          <div className="col-md-6 mt-5 mx-auto">
-            <h5>{errorMessage}</h5>
-            <Form>
+          <div>
+            <Form
+              noValidate
+              validated={validated}
+              onSubmit={handleChange}
+            >
+              <h4 className="mb-2 text-danger font-italic">{errorMessage}</h4>
               <Form.Group className="input-field" controlId="formBasicEmail">
                 <Form.Control
                   className="input"
+                  required
                   type="text"
                   placeholder="Full name..."
-                  name="firstName"
                   onChange={handleChange}
+                  name="firstName"
                 />
+                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
               </Form.Group>
 
               <Form.Group className="input-field" controlId="formBasicEmail">
-                <Form.Control
-                  className="input"
-                  type="email"
-                  placeholder="Enter email..."
-                  name="email"
-                  onChange={handleChange}
-                />
+                <InputGroup hasValidation>
+                  <Form.Control
+                    className="input"
+                    required
+                    type="email"
+                    placeholder="Enter email..."
+                    name="email"
+                    onChange={handleChange}
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please enter a valid email.
+                  </Form.Control.Feedback>
+                </InputGroup>
               </Form.Group>
               <Form.Group
                 className="input-field password-container"
-                controlId="formBasicPassword"
+                controlId="fvalidationCustom05"
               >
+                {/* TODO: The label eye needs styling */}
+                <Form.Label>
+                  <i onClick={togglePasswordVisiblity}>{eye}</i>
+                </Form.Label>
                 <Form.Control
                   className="input"
                   type={passwordShown ? "text" : "password"}
-                  placeholder="Password"
-                  name="password"
+                  placeholder="Password..."
                   onChange={handleChange}
+                  name="password"
+                  minLength={6}
+                  required
                 />
-                <i onClick={togglePasswordVisiblity}>{eye}</i>
+                <Form.Control.Feedback type="invalid">
+                  Please provide a valid password.
+                </Form.Control.Feedback>
+              </Form.Group>
+              <Form.Group className="mb-3">
+                <Form.Check
+                  required
+                  label="Agree to terms and conditions"
+                  feedback="You must agree before submitting."
+                  feedbackType="invalid"
+                />
               </Form.Group>
               <div className="btn">
                 <button
                   className="cancel-btn"
                   variant="outline-success"
-                  // style={{ margin: "10px" }}
                   type="submit"
                   onClick={handleBack}
                 >
@@ -133,7 +160,6 @@ const Register = () => {
                 <button
                   className="signUp-btn"
                   variant="outline-success"
-                  // style={{ margin: "10px" }}
                   type="submit"
                   onClick={handleSubmit}
                 >
@@ -141,7 +167,7 @@ const Register = () => {
                 </button>
               </div>
             </Form>
-            {/* <Footer /> */}
+            <Footer />
           </div>
         </div>
       </div>

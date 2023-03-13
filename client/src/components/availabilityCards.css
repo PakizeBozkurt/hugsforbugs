@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&family=Sen:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&family=Sen:wght@700&display=swap');
+
+.cards {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  
+}
+.cardDesign{
+  background: #ffffff;
+  border: none;
+  margin: 1px;
+  padding: 1px;
+}
+
+.cards:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.cardHeading {
+  font-family: sen;
+  font-size: 32px;
+}
+
+.cardFont {
+  font-family: sen;
+  font-size: 13px;
+}
+
+.cardBtn {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+}

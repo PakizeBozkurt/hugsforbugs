@@ -1,4 +1,4 @@
-Footer styles
+/* Footer styles */
 footer {
   position: fixed;
   left: 0;
@@ -6,9 +6,7 @@ footer {
   width: 100%;
   background-color: #070707;
   padding: 10px 0;
-  margin-bottom: 10px;
 }
-
 
 footer h3 {
   color: #fff;
