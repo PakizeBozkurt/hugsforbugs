@@ -8,6 +8,7 @@ function AvailableTrainees() {
   const [trainees, setTrainees] = useState([]);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("daily");
+  const [selected, setSelected] = useState("daily");
 
   useEffect(() => {
     fetch(
@@ -31,17 +32,19 @@ function AvailableTrainees() {
     setSearch(value);
   };
 
-  function handleDailyFilter() {
-    setFilter("daily");
-  }
-
-  function handleWeeklyFilter() {
-    setFilter("weekly");
-  }
-
-  function handleMonthlyFilter() {
-    setFilter("monthly");
-  }
+  const handleFilter = (event) => {
+    event.preventDefault();
+    if (event.target.innerText === "Daily") {
+      setFilter("daily");
+      setSelected("daily");
+    } else if (event.target.innerText === "Weekly") {
+      setFilter("weekly");
+      setSelected("weekly");
+    } else if (event.target.innerText === "Monthly") {
+      setFilter("monthly");
+      setSelected("monthly");
+    }
+  };
 
   return (
     <div>
@@ -70,26 +73,26 @@ function AvailableTrainees() {
                 <div
                   className="btn-group"
                   role="group"
-                  aria-label="Basic example"
+                  aria-label="Button to filter by results"
                 >
                   <button
                     type="button"
                     className="btn btn-outline-info"
-                    onClick={handleDailyFilter}
+                    onClick={handleFilter}
                   >
                     Daily
                   </button>
                   <button
                     type="button"
                     className="btn btn-outline-info"
-                    onClick={handleWeeklyFilter}
+                    onClick={handleFilter}
                   >
                     Weekly
                   </button>
                   <button
                     type="button"
                     className="btn btn-outline-info"
-                    onClick={handleMonthlyFilter}
+                    onClick={handleFilter}
                   >
                     Monthly
                   </button>
@@ -113,16 +116,8 @@ function AvailableTrainees() {
             <div className="row">
               {trainees.map((trainee) => {
                 return (
-                  <div className="col-md-4">
-                    <div
-                      className="card mb-4 shadow-sm"
-                      style={{
-                        background: "#ffffff",
-                        border: "none",
-                        margin: "2px",
-                        padding: "2px",
-                      }}
-                    >
+                  <div className="col-md-4 cards ">
+                    <div className="card mb-4 cardDesign shadow-sm ">
                       <AvailabilityCards
                         key={trainee.id}
                         trainee={trainee}
