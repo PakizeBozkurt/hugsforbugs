@@ -13,7 +13,7 @@ function NavBar() {
             <Nav className="me-auto">
             <Nav.Link href="/all-users">All Users</Nav.Link>
             <Nav.Link href="/my-availability">My Availabilities</Nav.Link>
-            <Nav.Link href="/create-availability">Create Availability</Nav.Link>
+            {/* <Nav.Link href="/create-availability">Create Availability</Nav.Link> */}
             <Nav.Link href="/my-matches">My Matches</Nav.Link>
             </Nav>
             <Nav className="ml-auto">
