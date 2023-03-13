@@ -61,7 +61,7 @@ const MyAvailability = () => {
                           <strong>Topic: </strong>
                           {date.topic}
                         </p>
-                        <Footer />
+                        {/* <Footer /> */}
                       </div>
                     </div>
                   </div>

@@ -168,7 +168,7 @@ const Register = () => {
                 </button>
               </div>
             </Form>
-            <Footer />
+            {/* <Footer /> */}
           </div>
         </div>
       </div>
