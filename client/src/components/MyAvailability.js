@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
-// import Footer from "./Footer/Footer";
+import Footer from "./Footer/Footer";
+import CreateAvailibity from "./CreateAvailability";
+import MyAvailabilityCards from "./MyAvailabilityCards";
 
 const MyAvailability = () => {
   const [myDate, setMyDates] = useState([]);
@@ -31,43 +33,29 @@ const MyAvailability = () => {
       <div>
         <NavBar />
       </div>
-      <h1
-        style={{
-          fontFamily: "sen",
-          color: "black",
-          textAlign: "center",
-          marginTop: "100px",
-          marginBottom: "50px",
-        }}
-      >
-        My Availability
-      </h1>
+      <h1>My Availability</h1>
       <div>
         <div>
+          <CreateAvailibity />
+          <hr />
           <div className="container">
-            <div className="card-body">
-              <div className="row">
-                {myDate.map((date) => (
-                  <div className="col-md-4">
-                    <div className="card mb-4 shadow-sm">
-                      <div className="card-body">
-                        <p className="card-text">
-                          <strong>Date: </strong>
-                          {new Date(
-                            date.availability_date
-                          ).toLocaleDateString()}
-                        </p>
-                        <p className="card-text">
-                          <strong>Topic: </strong>
-                          {date.topic}
-                        </p>
-                        <Footer />
-                      </div>
+            <div className="row">
+              {myDate.map((date) => {
+                return (
+                  <div className="col-md-4 cards">
+                    <div className="card mb-4 cardDesign shadow-sm">
+                      <MyAvailabilityCards
+                        key={date.id}
+                        date={date}
+                        dates={myDate}
+                        setDates={setMyDates}
+                      />
                     </div>
                   </div>
-                ))}
-              </div>
+                );
+              })}
             </div>
+            <Footer />
           </div>
         </div>
       </div>
