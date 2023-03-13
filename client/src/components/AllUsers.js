@@ -79,28 +79,8 @@ const AllUsers = () => {
                 <div
                   className="btn-group"
                   role="group"
-                  aria-label="Buttons to filter results"
+                  aria-label="Buttons to display all users"
                 >
-                  <button
-                    type="button"
-                    className={`btn btn-${
-                      selected === "daily" ? "info" : "outline-info"
-                    }`}
-                    value="daily"
-                    onClick={handleFilter}
-                  >
-                    Daily
-                  </button>
-                  <button
-                    type="button"
-                    className={`btn btn-${
-                      selected === "weekly" ? "info" : "outline-info"
-                    }`}
-                    value="weekly"
-                    onClick={handleFilter}
-                  >
-                    Weekly
-                  </button>
                   <button
                     type="button"
                     className={`btn btn-${
@@ -109,10 +89,11 @@ const AllUsers = () => {
                     value="monthly"
                     onClick={handleFilter}
                   >
-                    Monthly
+                    AllUsers
                   </button>
                 </div>
               </div>
+
             </div>
           </div>
           <div>
