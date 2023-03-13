@@ -45,7 +45,7 @@ import React from "react";
 
 const SendEmail = (props) => {
   const [email] = React.useState(localStorage.getItem("email"));
-  const [to] = React.useState(props.owner.email);
+  const [to] = React.useState(props.trainee.email);
   const [subject] = React.useState("Study Buddy");
   const [message] = React.useState("Hello, I would like to study with you.");
 
@@ -60,7 +60,7 @@ const SendEmail = (props) => {
     if (email === "" || to === "" || subject === "" || message === "") {
       alert("Please fill all fields");
     } else {
-      const response = await fetch("http://localhost:5000/send", {
+      const response = await fetch("http://localhost:4000/send", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
