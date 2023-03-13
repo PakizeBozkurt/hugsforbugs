@@ -70,22 +70,15 @@ const Login = () => {
   };
 
   return (
-    <div className="container row col-md-6 mt-5 mx-auto">
-      <h2 style={{ fontSize: "2.2em" }} className="text-center text-light">
-        LOGIN
-      </h2>
-      <Form
-        noValidate
-        validated={validated}
-        onSubmit={handleChange}
-        style={{ width: "50%", margin: "auto" }}
-      >
-        <Form.Group as={Col} className="mb-4" controlId="formBasicEmail">
-          <Form.Label className="text-light">Email</Form.Label>
+    <div className="container">
+      <h1>LOGIN</h1>
+      <Form noValidate validated={validated} onSubmit={handleChange}>
+        <Form.Group as={Col} className="input-field" controlId="formBasicEmail">
           <InputGroup hasValidation>
             <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
             <Form.Control
               type="email"
+              className="input"
               placeholder="Enter email"
               name="email"
               onChange={handleChange}
@@ -97,12 +90,16 @@ const Login = () => {
           </InputGroup>
         </Form.Group>
 
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label style={{ color: "goldenrod" }}>
-            Password <i onClick={togglePasswordVisiblity}>{eye}</i>
+        <Form.Group
+          controlId="formBasicPassword"
+          className="input-field password-container"
+        >
+          <Form.Label>
+            <i onClick={togglePasswordVisiblity}>{eye}</i>
           </Form.Label>
           <Form.Control
             type={passwordShown ? "text" : "password"}
+            className="input"
             placeholder="Password"
             name="password"
             onChange={handleChange}
@@ -113,22 +110,14 @@ const Login = () => {
             Please provide a valid password.
           </Form.Control.Feedback>
         </Form.Group>
-        <Button
-          variant="outline-light"
-          style={{ margin: "10px" }}
-          type="submit"
-          onClick={login}
-        >
-          Login
-        </Button>
-        <Button
-          variant="outline-light"
-          style={{ margin: "10px" }}
-          type="submit"
-          onClick={handleBack}
-        >
-          Back
-        </Button>
+        <div className="btn">
+          <button className="signUp-btn" type="submit" onClick={login}>
+            Login
+          </button>
+          <button className="cancel-btn" type="submit" onClick={handleBack}>
+            Back
+          </button>
+        </div>
       </Form>
       <Footer />
     </div>

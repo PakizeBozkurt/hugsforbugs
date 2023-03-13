@@ -35,6 +35,7 @@ Form {
   font-family: "Poppins", sans-serif;
   padding: 0.5em 4em;
 }
+
 .btn {
   display: flex;
 }
