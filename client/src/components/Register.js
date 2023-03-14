@@ -7,7 +7,7 @@ import Footer from "./Footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 
-import "./register.css";
+import "./Register.css";
 
 const eye = <FontAwesomeIcon icon={faEye} />;
 
