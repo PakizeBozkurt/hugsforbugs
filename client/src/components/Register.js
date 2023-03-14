@@ -6,7 +6,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Footer from "./Footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
-import Heading from "./Heading"; 
+import Heading from "./Heading";
 
 import "./Register.css";
 

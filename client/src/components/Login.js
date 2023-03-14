@@ -9,6 +9,7 @@ import "./Register.css";
 
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import Register from "./Register";
+import Heading from "./Heading";
 const eye = <FontAwesomeIcon icon={faEye} />;
 
 const Login = () => {
@@ -71,7 +72,9 @@ const Login = () => {
 
   return (
     <div className="container">
-      <h1>LOGIN</h1>
+      <div className = "header">
+        <Heading name = {"Login"}/> 
+      </div>
       <Form noValidate validated={validated} onSubmit={handleChange}>
         <Form.Group as={Col} className="input-field" controlId="formBasicEmail">
           <InputGroup hasValidation>
