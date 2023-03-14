@@ -32,21 +32,17 @@ footer ul {
   justify-content: center;
 }
 
-
 footer ul li a {
   color: #74b6f8;
   text-decoration: none;
   font-size: 4px;
 }
 
-
 .logo {
-position: absolute;
-justify-content: start;
-width: 100px;
-height: 40px;
-
-
+  position: absolute;
+  justify-content: start;
+  width: 100px;
+  height: 40px;
 }
 
 .social-icons {
@@ -89,7 +85,7 @@ height: 40px;
 
 /* Media Queries */
 
- @media only screen and (max-width: 767px) {
+@media only screen and (max-width: 767px) {
   footer {
     padding: 1px 0 0 5px;
   }
@@ -107,4 +103,3 @@ height: 40px;
     justify-content: center;
   }
 }
-
