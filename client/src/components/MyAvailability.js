@@ -3,6 +3,7 @@ import NavBar from "./NavBar";
 import Footer from "./Footer/Footer";
 import CreateAvailibity from "./CreateAvailability";
 import MyAvailabilityCards from "./MyAvailabilityCards";
+import Heading from "./Heading";
 
 const MyAvailability = () => {
   const [myDate, setMyDates] = useState([]);
@@ -33,7 +34,7 @@ const MyAvailability = () => {
       <div>
         <NavBar />
       </div>
-      <h1>My Availability</h1>
+      <Heading name={"My Availability"} />
       <div>
         <div>
           <CreateAvailibity />
