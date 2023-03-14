@@ -3,7 +3,7 @@ import { Container, Nav, Navbar, Image } from "react-bootstrap";
 import UserInfoMenu from "./UserInfoMenu";
 function NavBar() {
   return (
-    <div>
+   <div>
    {
       localStorage.getItem("token") ? (
          <Navbar bg="dark" variant="dark" expand="lg">
