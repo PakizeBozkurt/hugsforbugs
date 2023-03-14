@@ -1,6 +1,6 @@
 import React from "react";
-// import DeleteMyAvailability from "./DeleteMyAvailability";
-// import EditMyAvailability from "./EditMyAvailability";
+import DeleteMyAvailability from "./DeleteMyAvailability";
+import EditMyAvailability from "./EditMyAvailability";
 
 function MyAvailabilityCards(props) {
   return (
@@ -18,8 +18,8 @@ function MyAvailabilityCards(props) {
             </h6>
           </div>
           <div>
-            {/* <DeleteMyAvailability id={props.date.id} />
-            <EditMyAvailability id={props.date.id} /> */}
+            <DeleteMyAvailability id={props.date.id} />
+            <EditMyAvailability id={props.date.id} />
           </div>
         </div>
       </div>
