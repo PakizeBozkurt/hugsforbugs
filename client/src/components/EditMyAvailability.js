@@ -7,6 +7,7 @@ function EditMyAvailability(props) {
   const [trainees_id, setTrainees_id] = useState(localStorage.getItem("id"));
   const [date, setDate] = React.useState(new Date());
   const [topic, setTopic] = React.useState("");
+  const [errorMessage, setErrorMessage] = React.useState("");
 
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -32,7 +33,7 @@ function EditMyAvailability(props) {
         if (data.error) {
           alert(data.error);
         } else {
-          alert("You have updated this available date!");
+          setErrorMessage("You have updated this available date!");
           window.location.reload();
         }
       })
@@ -59,6 +60,7 @@ function EditMyAvailability(props) {
         </Modal.Header>
         <Modal.Body>
           <Form style={{ width: "50%", margin: "auto" }}>
+            <h5>{errorMessage}</h5>
             <Form.Group controlId="formBasicDate">
               <Form.Label>Date</Form.Label>
               <Form.Control
