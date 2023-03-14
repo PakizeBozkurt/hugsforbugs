@@ -60,7 +60,7 @@ function EditMyAvailability(props) {
         <Modal.Body>
           <Form style={{ width: "50%", margin: "auto" }}>
             <Form.Group controlId="formBasicDate">
-              <Form.Label style={{ color: "goldenrod" }}>Date</Form.Label>
+              <Form.Label>Date</Form.Label>
               <Form.Control
                 type="date"
                 min={new Date().toISOString().split("T")[0]}
@@ -74,7 +74,7 @@ function EditMyAvailability(props) {
               />
             </Form.Group>
             <Form.Group controlId="formBasicTopic">
-              <Form.Label style={{ color: "goldenrod" }}>Topic</Form.Label>
+              <Form.Label>Topic</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Topic"
