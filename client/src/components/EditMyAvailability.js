@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Form, Modal } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+
 function EditMyAvailability(props) {
   const [edit, setEdit] = useState(false);
   const [trainees_id, setTrainees_id] = useState(localStorage.getItem("id"));
   const [date, setDate] = React.useState(new Date());
   const [topic, setTopic] = React.useState("");
+
   const handleUpdate = (e) => {
     e.preventDefault();
     const formattedDate = `${date.getFullYear()}-${(
@@ -36,6 +38,7 @@ function EditMyAvailability(props) {
       })
       .catch((err) => console.log(err));
   };
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     if (name === "date") {
@@ -44,6 +47,7 @@ function EditMyAvailability(props) {
       setTopic(value);
     }
   };
+
   return (
     <div>
       <Button variant="outline-primary" onClick={() => setEdit(!setEdit())}>
