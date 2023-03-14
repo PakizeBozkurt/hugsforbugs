@@ -16,8 +16,6 @@ function Navigator() {
         <Route path="/register" element={<Register />}/>
         <Route path="/login" element={<Login />}/>
         <Route path="/my-matches" element={<AvailableTrainees />}/>
-        {/* create Availability is inside my Availability */}
-        {/* <Route path="/create-availability" element={<CreateAvailability />}/> */}
         <Route path="/profile" element={<UserProfile />}/>
         <Route path="/my-availability" element={<MyAvailability />}/>
         <Route path="/all-users" element={<AllUsers />}/>
