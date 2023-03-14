@@ -7,7 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Footer from "./Footer/Footer";
 
 import { faEye } from "@fortawesome/free-solid-svg-icons";
-import Register from "./Register";
+
+import NavBar from "./NavBar";
 const eye = <FontAwesomeIcon icon={faEye} />;
 
 const Login = () => {
@@ -57,7 +58,7 @@ const Login = () => {
           localStorage.setItem("email", data.email);
           localStorage.setItem("name", data.name);
           localStorage.setItem("id", data.id);
-          window.location.href = "/createavailability";
+          window.location.href = "/create-availability";
         } else {
           alert("Wrong email or password");
           window.location.reload();
@@ -68,8 +69,10 @@ const Login = () => {
     setValidated(true);
   };
 
-  return (
+  return (<div>
+    <NavBar />
     <div className="container row col-md-6 mt-5 mx-auto">
+      
       <h2 style={{ fontSize: "2.2em" }} className="text-center text-light">
         LOGIN
       </h2>
@@ -130,6 +133,7 @@ const Login = () => {
         </Button>
       </Form>
       <Footer />
+    </div>
     </div>
   );
 };

@@ -12,13 +12,13 @@ const UserInfoMenu = () => {
         <div>
             <Dropdown>
                 <Dropdown.Toggle variant="outline-success" id="user-info-dropdown" >
-                    {user.name} {/* Replace with the name of the logged user */}
+                    {user.name.charAt(0).toLocaleUpperCase()} {/* Replace with the name of the logged user */}
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
                  
                     <Dropdown.Item href="/profile">Profile</Dropdown.Item>
-                    <Dropdown.Item href="/logout">Logout</Dropdown.Item>
+                    <Dropdown.Item > <Logout /></Dropdown.Item>
                 </Dropdown.Menu>
 
             </Dropdown>

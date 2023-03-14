@@ -6,7 +6,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Footer from "./Footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
-
+import NavBar from "./NavBar";
 import "./register.css";
 
 const eye = <FontAwesomeIcon icon={faEye} />;
@@ -82,10 +82,13 @@ const Register = () => {
 
   return (
     <div>
+      <NavBar />
       <div className="container">
+        
         <h1>Register</h1>
         <div className="row">
           <div className="col-md-6 mt-5 mx-auto">
+      
             <Form
               noValidate
               validated={validated}
