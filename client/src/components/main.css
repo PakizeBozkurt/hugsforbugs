@@ -12,3 +12,11 @@ body {
   margin-top: 100px;
   margin-bottom: 50px;
 }
+
+/* styling for ResultPage.js */
+.noResultHeading {
+  width: 40%;
+  margin: 50px auto;
+  text-align: center;
+  color: #ff0000;
+}
