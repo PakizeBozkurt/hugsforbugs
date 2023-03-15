@@ -37,7 +37,6 @@ function Home() {
             Register
           </button>
         </div>
-        {/* <SendEmail /> */}
         <video className="video" autoPlay loop muted>
           <source src={vid} type="video/mp4" />
         </video>
