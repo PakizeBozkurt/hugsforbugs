@@ -1,10 +1,10 @@
 import React from "react";
 import SendEmail from "./SendEmail";
 
-function AvailibityCards(props) {
+function AvailabilityCards(props) {
   return (
-    <div className="col-md-4 cards ">
-      <div className="card mb-4 cardDesign shadow-sm ">
+    <div className="col-md-4 cards">
+      <div className="card mb-4 cardDesign shadow-sm">
         <div className="container">
           <div className="card-body">
             <h2 className="card-text cardHeading">Name: {props.trainee.name}</h2>
@@ -22,4 +22,4 @@ function AvailibityCards(props) {
   );
 }
 
-export default AvailibityCards;
+export default AvailabilityCards;

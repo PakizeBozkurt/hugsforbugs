@@ -4,8 +4,8 @@ import EditMyAvailability from "./EditMyAvailability";
 
 function MyAvailabilityCards(props) {
   return (
-    <div>
-      <div>
+    <div className="col-md-4 cards">
+      <div className="card mb-4 cardDesign shadow-sm">
         <div className={"card"}>
           <div className={"card-body"}>
             <h5 className="card-title">
