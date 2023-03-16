@@ -9,13 +9,18 @@ import {
   faLinkedin,
   faGoogle,
 } from "@fortawesome/free-brands-svg-icons";
-import "./footer.css";
+import "./Footer.css";
 
 function Footer() {
   return (
     <footer>
       <div className="row">
-        <div className="col-md-4">
+        <div>
+          <img
+            className="logo"
+            src="https://codeyourfuture.io/wp-content/uploads/2019/03/cyf_brand.png"
+            alt="Code Your Future Logo"
+          />
           <h3>Follow Us</h3>
           <ul className="social-icons text-center">
             <li>
@@ -50,18 +55,13 @@ function Footer() {
             </li>
           </ul>
         </div>
-        <div className="col-md-8 text-centre">
-          <p>
-            <span> &copy; {new Date().getFullYear()} All rights reserved</span>{" "}
-            | <span>Registered UK and Scottish charity</span> |{" "}
-            <a href="#">Send website feedback</a>
-            <img
-              className="logo"
-              src="https://codeyourfuture.io/wp-content/uploads/2019/03/cyf_brand.png"
-              alt="Code Your Future Logo"
-              width="80"
-              height="auto"
-            />
+        <div className="text-centre">
+          <p className="policy">
+            <span>
+              {" "}
+              &copy; {new Date().getFullYear()} Study Buddies by Hugs4Bugs
+            </span>{" "}
+            <span className="terms"><a href="/">Terms & Conditions</a></span>
           </p>
         </div>
       </div>

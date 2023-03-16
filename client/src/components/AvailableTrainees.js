@@ -3,6 +3,7 @@ import ResultPage from "./ResultPage";
 import AvailabilityCards from "./AvailabilityCards";
 import Heading from "./Heading";
 import NavBar from "./NavBar";
+import Footer from './Footer/Footer';
 
 function AvailableTrainees() {
   const [trainees, setTrainees] = useState([]);
@@ -49,6 +50,7 @@ function AvailableTrainees() {
   return (
     <div>
       <NavBar />
+      <Heading name={"List of Trainees with Matching Availability"} />
       {trainees.length < 1 ? (
         <div>
           <ResultPage
@@ -60,7 +62,6 @@ function AvailableTrainees() {
         </div>
       ) : (
         <div>
-          <Heading name={"All Available Trainees"} />
           <div className="container">
             <div className="row">
               <div className="col-md-6">
@@ -125,22 +126,19 @@ function AvailableTrainees() {
             <div className="row">
               {trainees.map((trainee) => {
                 return (
-                  <div className="col-md-4 cards ">
-                    <div className="card mb-4 cardDesign shadow-sm ">
-                      <AvailabilityCards
-                        key={trainee.id}
-                        trainee={trainee}
-                        trainees={trainees}
-                        setTrainees={setTrainees}
-                      />
-                    </div>
-                  </div>
+                  <AvailabilityCards
+                    key={trainee.id}
+                    trainee={trainee}
+                    trainees={trainees}
+                    setTrainees={setTrainees}
+                  />
                 );
               })}
             </div>
           </div>
         </div>
       )}
+      <Footer />
     </div>
   );
 }
