@@ -40,7 +40,7 @@ app.post("/send", (req, res) => {
     });
 });
 
-const port =4000;
+const port = 4000;
 app.listen(port, () => {
   // eslint-disable-next-line no-console
     console.log(`serve at http://localhost:${port}`);

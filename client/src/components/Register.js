@@ -6,8 +6,10 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Footer from "./Footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
+import Heading from "./Heading";
+import NavBar from "./NavBar";
 
-import "./register.css";
+import "./Register.css";
 
 const eye = <FontAwesomeIcon icon={faEye} />;
 
@@ -82,23 +84,21 @@ const Register = () => {
 
   return (
     <div>
+      <NavBar />
       <div className="container">
-        <h1>Register</h1>
+        <div className="header">
+          <Heading name={"Register"} />
+        </div>
         <div className="row">
-          <div className="col-md-6 mt-5 mx-auto">
-            <Form
-              noValidate
-              validated={validated}
-              onSubmit={handleChange}
-              style={{ width: "50%", margin: "auto" }}
-            >
+          <div>
+            <Form noValidate validated={validated} onSubmit={handleChange}>
               <h4 className="mb-2 text-danger font-italic">{errorMessage}</h4>
               <Form.Group className="input-field" controlId="formBasicEmail">
                 <Form.Control
                   className="input"
                   required
                   type="text"
-                  placeholder="First name"
+                  placeholder="Full name..."
                   onChange={handleChange}
                   name="firstName"
                 />
@@ -131,7 +131,7 @@ const Register = () => {
                 <Form.Control
                   className="input"
                   type={passwordShown ? "text" : "password"}
-                  placeholder="password"
+                  placeholder="Password..."
                   onChange={handleChange}
                   name="password"
                   minLength={6}
