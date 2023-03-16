@@ -15,28 +15,37 @@ h1 {
   text-align: center;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
-  margin-top: 3em;
+  margin-top: 2.5em;
+  text-transform: uppercase;
 }
 
 Form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .input-field {
   padding: 1em 0;
+  width: 50%;
 }
 .input {
   border: 2px solid #264960;
   border-radius: 0;
   font-family: "Poppins", sans-serif;
+  padding: 0.5em 4em;
+}
+
+.btn {
+  display: flex;
 }
 .btn button {
   font-size: 1em;
-  padding: 5px 70px;
+  padding: 12px 28px;
   border-radius: 8px;
   text-transform: uppercase;
   font-weight: 600;
-  margin: 20px;
+  margin: 10px;
   letter-spacing: 2px;
   transition: 0.2s;
 }
@@ -59,6 +68,6 @@ Form {
 }
 .fa-eye{
   position: absolute;
-  top: 40%;
-  right: 6%;
+  top: 53%;
+  right: 3%;
 }
