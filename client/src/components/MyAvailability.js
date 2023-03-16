@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
 import Footer from "./Footer/Footer";
-import CreateAvailibity from "./CreateAvailability";
+import CreateAvailability from "./CreateAvailability";
 import MyAvailabilityCards from "./MyAvailabilityCards";
 import Heading from "./Heading";
 
@@ -37,29 +37,25 @@ const MyAvailability = () => {
       <Heading name={"My Availability"} />
       <div>
         <div>
-          <CreateAvailibity />
+          <CreateAvailability />
           <hr />
           <div className="container">
             <div className="row">
               {myDate.map((date) => {
                 return (
-                  <div className="col-md-4 cards">
-                    <div className="card mb-4 cardDesign shadow-sm">
-                      <MyAvailabilityCards
-                        key={date.id}
-                        date={date}
-                        dates={myDate}
-                        setDates={setMyDates}
-                      />
-                    </div>
-                  </div>
+                  <MyAvailabilityCards
+                    key={date.id}
+                    date={date}
+                    dates={myDate}
+                    setDates={setMyDates}
+                  />
                 );
               })}
             </div>
           </div>
         </div>
       </div>
-            <Footer />
+      <Footer />
     </div>
   );
 };
