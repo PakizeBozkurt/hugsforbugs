@@ -125,11 +125,8 @@ function AvailableTrainees() {
             <div className="row">
               {trainees.map((trainee) => {
                 return (
-                  <div className="col-md-4 cards">
-                    <div
-                      className="card cardDesign mb-4 shadow-sm"
-
-                    >
+                  <div className="col-md-4 cards ">
+                    <div className="card mb-4 cardDesign shadow-sm ">
                       <AvailabilityCards
                         key={trainee.id}
                         trainee={trainee}

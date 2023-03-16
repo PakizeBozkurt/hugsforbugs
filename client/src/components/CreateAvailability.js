@@ -42,7 +42,7 @@ function CreateAvailability() {
           alert(data.error);
         } else {
           alert("You have created a new available date!");
-          window.location.href = "/home";
+          window.location.href = "/my-matches";
         }
       })
       .catch((err) => console.log(err));
@@ -55,12 +55,7 @@ function CreateAvailability() {
 
   return (
     <div>
-      <NavBar />
-
       <div className="container row col-md-6 mt-5 mx-auto">
-        <h1 align="center" className="pt-4">
-          AVAILABILITY
-        </h1>
         <Form style={{ width: "50%", margin: "auto" }}>
           <Form.Group controlId="formBasicDate">
             <Form.Label style={{ color: "darkblue" }}>Date</Form.Label>
@@ -98,49 +93,6 @@ function CreateAvailability() {
             Back
           </Button>
         </Form>
-        <Footer />
-        <div className="row">
-          <div className="col-md-6 mt-5 mx-auto">
-            <Form style={{ width: "50%", margin: "auto" }}>
-              <Form.Group controlId="formBasicDate">
-                <Form.Label style={{ color: "darkblue" }}>Date</Form.Label>
-                <Form.Control
-                  type="date"
-                  min={new Date().toISOString().split("T")[0]}
-                  name="date"
-                  onChange={handleChange}
-                />
-              </Form.Group>
-              <Form.Group controlId="formBasicTopic">
-                <Form.Label style={{ color: "darkblue" }}>Topic</Form.Label>
-                <Form.Control
-                  className="col-md-6"
-                  feedback="Please enter a topic."
-                  invalid
-                  type="text"
-                  placeholder="Topic"
-                  name="topic"
-                  onChange={handleChange}
-                />
-              </Form.Group>
-              <Button
-                onClick={handleSubmit}
-                className="btn btn-outline-info"
-                style={{ float: "right", margin: "10px" }}
-              >
-                Add availability
-              </Button>
-              <Button
-                onClick={handleBack}
-                className="btn btn-outline-info"
-                style={{ float: "right", margin: "10px" }}
-              >
-                Back
-              </Button>
-            </Form>
-            <Footer />
-          </div>
-        </div>
       </div>
     </div>
   );
