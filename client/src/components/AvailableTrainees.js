@@ -48,9 +48,7 @@ function AvailableTrainees() {
 
   return (
     <div>
-      <div>
-        <NavBar />
-      </div>
+      <NavBar />
       {trainees.length < 1 ? (
         <div>
           <ResultPage
@@ -82,9 +80,8 @@ function AvailableTrainees() {
                 >
                   <button
                     type="button"
-                    className={`btn btn-${
-                      selected === "daily" ? "info" : "outline-info"
-                    }`}
+                    className={`btn btn-${selected === "daily" ? "info" : "outline-info"
+                      }`}
                     value="daily"
                     onClick={handleFilter}
                   >
@@ -92,9 +89,8 @@ function AvailableTrainees() {
                   </button>
                   <button
                     type="button"
-                    className={`btn btn-${
-                      selected === "weekly" ? "info" : "outline-info"
-                    }`}
+                    className={`btn btn-${selected === "weekly" ? "info" : "outline-info"
+                      }`}
                     value="weekly"
                     onClick={handleFilter}
                   >
@@ -102,9 +98,8 @@ function AvailableTrainees() {
                   </button>
                   <button
                     type="button"
-                    className={`btn btn-${
-                      selected === "monthly" ? "info" : "outline-info"
-                    }`}
+                    className={`btn btn-${selected === "monthly" ? "info" : "outline-info"
+                      }`}
                     value="monthly"
                     onClick={handleFilter}
                   >
