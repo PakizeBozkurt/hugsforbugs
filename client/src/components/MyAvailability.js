@@ -56,10 +56,10 @@ const MyAvailability = () => {
                 );
               })}
             </div>
-            <Footer />
           </div>
         </div>
       </div>
+            <Footer />
     </div>
   );
 };
