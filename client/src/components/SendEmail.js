@@ -17,13 +17,16 @@ const SendEmail = (props) => {
         if (email === "" || to === "" || subject === "" || message === "") {
             alert("Please fill all fields");
         } else {
-            const response = await fetch("http://localhost:5000/send", {
+            const response = await fetch(
+              "https://starter-kit-0qci.onrender.com/api/send",
+              {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json",
+                  "Content-Type": "application/json",
                 },
                 body: JSON.stringify(data),
-            });
+              }
+            );
             console.log(response);
             const content = await response.json();
             console.log(content);

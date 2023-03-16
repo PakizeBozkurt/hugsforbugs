@@ -45,7 +45,7 @@ const Login = () => {
       email,
       password,
     };
-    fetch("https://study-buddies.onrender.com/login", {
+    fetch("https://starter-kit-0qci.onrender.com/api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
