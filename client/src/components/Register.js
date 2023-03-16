@@ -1,7 +1,5 @@
 import React from "react";
 import { Form } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
 import Footer from "./Footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -168,10 +166,10 @@ const Register = () => {
                 </button>
               </div>
             </Form>
-            {/* <Footer /> */}
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
