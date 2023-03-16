@@ -51,9 +51,14 @@ function AvailableTrainees() {
       <div>
         <NavBar />
       </div>
-      {trainees.length <= 1 ? (
+      {trainees.length < 1 ? (
         <div>
-          <ResultPage filter={setFilter} />
+          <ResultPage
+            handleFilter={handleFilter}
+            handleSearch={handleSearch}
+            search={search}
+            selected={selected}
+          />
         </div>
       ) : (
         <div>
@@ -73,25 +78,34 @@ function AvailableTrainees() {
                 <div
                   className="btn-group"
                   role="group"
-                  aria-label="Button to filter by results"
+                  aria-label="Buttons to filter results"
                 >
                   <button
                     type="button"
-                    className="btn btn-outline-info"
+                    className={`btn btn-${
+                      selected === "daily" ? "info" : "outline-info"
+                    }`}
+                    value="daily"
                     onClick={handleFilter}
                   >
                     Daily
                   </button>
                   <button
                     type="button"
-                    className="btn btn-outline-info"
+                    className={`btn btn-${
+                      selected === "weekly" ? "info" : "outline-info"
+                    }`}
+                    value="weekly"
                     onClick={handleFilter}
                   >
                     Weekly
                   </button>
                   <button
                     type="button"
-                    className="btn btn-outline-info"
+                    className={`btn btn-${
+                      selected === "monthly" ? "info" : "outline-info"
+                    }`}
+                    value="monthly"
                     onClick={handleFilter}
                   >
                     Monthly
