@@ -3,11 +3,13 @@ import ResultPage from "./ResultPage";
 import AvailabilityCards from "./AvailabilityCards";
 import Heading from "./Heading";
 import NavBar from "./NavBar";
+import Footer from './Footer/Footer';
 
 function AvailableTrainees() {
   const [trainees, setTrainees] = useState([]);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("daily");
+  const [selected, setSelected] = useState("daily");
 
   useEffect(() => {
     fetch(
@@ -31,30 +33,35 @@ function AvailableTrainees() {
     setSearch(value);
   };
 
-  function handleDailyFilter() {
-    setFilter("daily");
-  }
-
-  function handleWeeklyFilter() {
-    setFilter("weekly");
-  }
-
-  function handleMonthlyFilter() {
-    setFilter("monthly");
-  }
+  const handleFilter = (event) => {
+    event.preventDefault();
+    if (event.target.innerText === "Daily") {
+      setFilter("daily");
+      setSelected("daily");
+    } else if (event.target.innerText === "Weekly") {
+      setFilter("weekly");
+      setSelected("weekly");
+    } else if (event.target.innerText === "Monthly") {
+      setFilter("monthly");
+      setSelected("monthly");
+    }
+  };
 
   return (
     <div>
-      <div>
-        <NavBar />
-      </div>
-      {trainees.length <= 1 ? (
+      <NavBar />
+      <Heading name={"List of Trainees with Matching Availability"} />
+      {trainees.length < 1 ? (
         <div>
-          <ResultPage filter={setFilter} />
+          <ResultPage
+            handleFilter={handleFilter}
+            handleSearch={handleSearch}
+            search={search}
+            selected={selected}
+          />
         </div>
       ) : (
         <div>
-          <Heading name={"All Available Trainees"} />
           <div className="container">
             <div className="row">
               <div className="col-md-6">
@@ -70,26 +77,32 @@ function AvailableTrainees() {
                 <div
                   className="btn-group"
                   role="group"
-                  aria-label="Basic example"
+                  aria-label="Buttons to filter results"
                 >
                   <button
                     type="button"
-                    className="btn btn-outline-info"
-                    onClick={handleDailyFilter}
+                    className={`btn btn-${selected === "daily" ? "info" : "outline-info"
+                      }`}
+                    value="daily"
+                    onClick={handleFilter}
                   >
                     Daily
                   </button>
                   <button
                     type="button"
-                    className="btn btn-outline-info"
-                    onClick={handleWeeklyFilter}
+                    className={`btn btn-${selected === "weekly" ? "info" : "outline-info"
+                      }`}
+                    value="weekly"
+                    onClick={handleFilter}
                   >
                     Weekly
                   </button>
                   <button
                     type="button"
-                    className="btn btn-outline-info"
-                    onClick={handleMonthlyFilter}
+                    className={`btn btn-${selected === "monthly" ? "info" : "outline-info"
+                      }`}
+                    value="monthly"
+                    onClick={handleFilter}
                   >
                     Monthly
                   </button>
@@ -113,30 +126,19 @@ function AvailableTrainees() {
             <div className="row">
               {trainees.map((trainee) => {
                 return (
-                  <div className="col-md-4">
-                    <div
-                      className="card mb-4 shadow-sm"
-                      style={{
-                        background: "#ffffff",
-                        border: "none",
-                        margin: "2px",
-                        padding: "2px",
-                      }}
-                    >
-                      <AvailabilityCards
-                        key={trainee.id}
-                        trainee={trainee}
-                        trainees={trainees}
-                        setTrainees={setTrainees}
-                      />
-                    </div>
-                  </div>
+                  <AvailabilityCards
+                    key={trainee.id}
+                    trainee={trainee}
+                    trainees={trainees}
+                    setTrainees={setTrainees}
+                  />
                 );
               })}
             </div>
           </div>
         </div>
       )}
+      <Footer />
     </div>
   );
 }
