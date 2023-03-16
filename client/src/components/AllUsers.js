@@ -3,6 +3,7 @@ import ResultPage from "./ResultPage";
 import NavBar from "./NavBar";
 import AvailabilityCards from "./AvailabilityCards";
 import Heading from "./Heading";
+import Footer from './Footer/Footer';
 import "./availabilityCards.css";
 import "./main.css";
 
@@ -52,81 +53,66 @@ const AllUsers = () => {
       <div>
         <NavBar />
       </div>
-      {trainees.length > 1 ? (
-        <div>
-          <ResultPage
-            handleFilter={handleFilter}
-            handleSearch={handleSearch}
-            search={search}
-            selected={selected}
-          />
-        </div>
-      ) : (
-        <div>
-          <Heading name={"All Available Trainees"} />
-          <div className="container">
-            <div className="row">
-              <div className="col-md-6">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Search"
-                  value={search}
-                  onChange={handleSearch}
-                />
-              </div>
-              <div className="col-md-6">
-                <div
-                  className="btn-group"
-                  role="group"
-                  aria-label="Buttons to display all users"
-                >
-                  <button
-                    type="button"
-                    className={`btn btn-${
-                      selected === "monthly" ? "info" : "outline-info"
+      <div>
+        <Heading name={"All Available Trainees"} />
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Search"
+                value={search}
+                onChange={handleSearch}
+              />
+            </div>
+            <div className="col-md-6">
+              <div
+                className="btn-group"
+                role="group"
+                aria-label="Buttons to display all users"
+              >
+                <button
+                  type="button"
+                  className={`btn btn-${selected === "monthly" ? "info" : "outline-info"
                     }`}
-                    value="monthly"
-                    onClick={handleFilter}
-                  >
-                    AllUsers
-                  </button>
-                </div>
+                  value="monthly"
+                  onClick={handleFilter}
+                >
+                  AllUsers
+                </button>
               </div>
+            </div>
 
-            </div>
-          </div>
-          <div>
-            <span>
-              <div className="col-md-6">
-                <div
-                  className="btn-group"
-                  role="group"
-                  aria-label="Buttons to filter results"
-                ></div>
-              </div>
-            </span>
-          </div>
-          <div className="container">
-            <div className="row">
-              {trainees.map((trainee) => {
-                return (
-                  <div className="col-md-4 cards ">
-                    <div className="card cardDesign mb-4 shadow-sm">
-                      <AvailabilityCards
-                        key={trainee.id}
-                        trainee={trainee}
-                        trainees={trainees}
-                        setTrainees={setTrainees}
-                      />
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
           </div>
         </div>
-      )}
+        <div>
+          <span>
+            <div className="col-md-6">
+              <div
+                className="btn-group"
+                role="group"
+                aria-label="Buttons to filter results"
+              ></div>
+            </div>
+          </span>
+        </div>
+        <div className="container">
+          <div className="row">
+            {trainees.map((trainee) => {
+              return (
+                <AvailabilityCards
+                  key={trainee.id}
+                  trainee={trainee}
+                  trainees={trainees}
+                  setTrainees={setTrainees}
+                />
+              );
+            })}
+          </div>
+        </div>
+      </div>
+      <Footer />
     </div>
   );
 };
