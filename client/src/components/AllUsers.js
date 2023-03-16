@@ -3,6 +3,7 @@ import ResultPage from "./ResultPage";
 import NavBar from "./NavBar";
 import AvailabilityCards from "./AvailabilityCards";
 import Heading from "./Heading";
+import Footer from './Footer/Footer';
 import "./availabilityCards.css";
 import "./main.css";
 
@@ -111,6 +112,7 @@ const AllUsers = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

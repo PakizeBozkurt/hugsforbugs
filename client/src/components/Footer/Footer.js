@@ -16,12 +16,12 @@ function Footer() {
     <footer>
       <div className="row">
         <div>
-          <h3>Follow Us</h3>
           <img
             className="logo"
             src="https://codeyourfuture.io/wp-content/uploads/2019/03/cyf_brand.png"
             alt="Code Your Future Logo"
           />
+          <h3>Follow Us</h3>
           <ul className="social-icons text-center">
             <li>
               <a href="#">
@@ -61,7 +61,7 @@ function Footer() {
               {" "}
               &copy; {new Date().getFullYear()} Study Buddies by Hugs4Bugs
             </span>{" "}
-            <span>Terms & Conditions</span>
+            <span className="terms"><a href="/">Terms & Conditions</a></span>
           </p>
         </div>
       </div>
