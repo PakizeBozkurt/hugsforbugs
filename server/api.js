@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Router } from "express";
 const jwt = require("jsonwebtoken");
 const { check, validationResult } = require("express-validator");
