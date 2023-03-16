@@ -19,7 +19,6 @@ function Navigator() {
         <Route path="/profile" element={<UserProfile />}/>
         <Route path="/my-availability" element={<MyAvailability />}/>
         <Route path="/all-users" element={<AllUsers />}/>
-        
       </Routes>
     </div>
   );
