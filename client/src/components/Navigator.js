@@ -17,8 +17,8 @@ function Navigator() {
         <Route path="/register" element={<Register />}/>
         <Route path="/login" element={<Login />}/>
         <Route path="/my-matches" element={<AvailableTrainees />}/>
-        <Route path="/profile" element={<UserProfile />}/>
         <Route path="/my-availability" element={<MyAvailability />}/>
+        <Route path="/profile" element={<UserProfile />}/>
         <Route path="/all-users" element={<AllUsers />}/>
       </Routes>
     </div>
