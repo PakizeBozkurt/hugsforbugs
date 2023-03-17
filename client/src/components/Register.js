@@ -1,7 +1,6 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 import InputGroup from "react-bootstrap/InputGroup";
-import Footer from "./Footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import Heading from "./Heading";
@@ -166,10 +165,10 @@ const Register = () => {
                 </button>
               </div>
             </Form>
-            <Footer />
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

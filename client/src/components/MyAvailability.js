@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
-import Footer from "./Footer/Footer";
 import CreateAvailability from "./CreateAvailability";
 import MyAvailabilityCards from "./MyAvailabilityCards";
 import Heading from "./Heading";
@@ -55,7 +54,6 @@ const MyAvailability = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
