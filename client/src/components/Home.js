@@ -8,7 +8,6 @@ import Subheading from "./Subheading";
 import Footer from "./Footer/Footer";
 
 function Home() {
-
   function handleRegisterBtn() {
     window.location.href = "/register";
   }
@@ -21,7 +20,7 @@ function Home() {
     <div>
       <div className="showcase">
         <div className="text">
-          <HeadingHome name={"Study Buddies"}/>
+          <HeadingHome name={"Study Buddies"} />
           <Subheading>Boost Your Productivity</Subheading>
           <p>
             Check availability and connect with friends and other CYF trainees.
@@ -41,7 +40,7 @@ function Home() {
           <source src={vid} type="video/mp4" />
         </video>
         <div className="overlay"></div>
-      <Footer />
+        <Footer />
       </div>
     </div>
   );
