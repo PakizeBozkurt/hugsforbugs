@@ -56,7 +56,7 @@ const Login = () => {
           localStorage.setItem("email", data.email);
           localStorage.setItem("name", data.name);
           localStorage.setItem("id", data.id);
-          window.location.href = "/my-matches";
+          window.location.href = "/my-availability";
         } else {
           setErr(true);
           window.location.reload();
