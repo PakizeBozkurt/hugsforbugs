@@ -40,8 +40,9 @@ function Home() {
           <source src={vid} type="video/mp4" />
         </video>
         <div className="overlay"></div>
-        <Footer />
+        
       </div>
+      <Footer />
     </div>
   );
 }

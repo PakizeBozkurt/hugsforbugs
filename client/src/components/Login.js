@@ -125,8 +125,9 @@ const Login = () => {
             </button>
           </div>
         </Form>
-        <Footer />
+        
       </div>
+      <Footer />
     </div>
   );
 };

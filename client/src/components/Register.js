@@ -166,10 +166,10 @@ const Register = () => {
                 </button>
               </div>
             </Form>
-            <Footer />
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
