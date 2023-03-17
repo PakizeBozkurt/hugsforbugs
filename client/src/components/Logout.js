@@ -5,17 +5,7 @@ function Logout() {
     window.location.href = "/";
   };
   return (
-    <button
-      style={{
-        position: "absolute",
-        border: "1px solid red",
-        top: "20px",
-        right: "15px",
-        cursor: "pointer",
-      }}
-      onClick={handleLogout}
-      className="logout-btn"
-    >
+    <button onClick={handleLogout} className="logout-btn">
       Logout{" "}
     </button>
   );
