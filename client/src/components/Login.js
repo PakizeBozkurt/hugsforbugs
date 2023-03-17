@@ -7,7 +7,6 @@ import "./Register.css";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import Heading from "./Heading";
 import NavBar from "./NavBar";
-
 const eye = <FontAwesomeIcon icon={faEye} />;
 
 const Login = () => {

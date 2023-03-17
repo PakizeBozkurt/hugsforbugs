@@ -2,7 +2,7 @@ import { useState } from "react";
 import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import NavBar from "./NavBar";
+
 
 function CreateAvailability() {
   const [date, setDate] = useState(new Date());
@@ -49,7 +49,7 @@ function CreateAvailability() {
 
   const handleBack = (event) => {
     event.preventDefault();
-    window.location.href = "/home";
+    window.location.href = "/my-matches";
   };
 
   return (
