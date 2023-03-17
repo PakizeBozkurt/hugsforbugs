@@ -57,7 +57,7 @@ const Register = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.msg === "User created") {
+        if (data.message === "User created") {
           setErrorMessage("User created");
           window.location.href = "/login";
         } else if (data.errors[0].msg === "User already exists") {
