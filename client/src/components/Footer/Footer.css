@@ -1,5 +1,5 @@
 footer {
-  position: fixed;
+  position: relative;
   align-items: flex-start;
   gap: 2px;
   left: 0;
@@ -18,6 +18,7 @@ footer h3 {
 
 footer p {
   color: #fff;
+  font-size: 0.8rem;
   margin-bottom: 5px;
   justify-content: space-between;
 }
@@ -29,19 +30,20 @@ footer p {
 
 footer ul {
   list-style: none;
+  font-size: 10px;
   padding-left: 0;
   justify-content: center;
 }
 
 footer ul li a {
-  color: #74b6f8;
+  color: #6b0707;
   text-decoration: none;
   font-size: 4px;
 }
 
 .logo {
   position: absolute;
-  height: 4rem;
+  height: 50px;
 }
 
 .social-icons {
@@ -64,7 +66,7 @@ footer ul li a {
 }
 
 .social-icons a:hover {
-  background-color: #15485F;
+  background-color: #15485f;
 }
 
 .social-icons a:focus {
@@ -83,7 +85,7 @@ footer ul li a {
 }
 
 .terms a:hover {
-  color: #E3EBEE;
+  color: #e3ebee;
 }
 
 /* Media Queries */

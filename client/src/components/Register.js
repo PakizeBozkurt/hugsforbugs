@@ -47,7 +47,7 @@ const Register = () => {
       password,
     };
 
-    fetch("https://study-buddies.onrender.com/register", {
+    fetch("https://starter-kit-0qci.onrender.com/api/register", {
       // this API comes from render.com
       method: "POST",
       headers: {

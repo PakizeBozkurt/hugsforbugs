@@ -61,7 +61,9 @@ function Footer() {
               {" "}
               &copy; {new Date().getFullYear()} Study Buddies by Hugs4Bugs
             </span>{" "}
-            <span className="terms"><a href="/">Terms & Conditions</a></span>
+            <span className="terms">
+              <a href="/">Terms & Conditions</a>
+            </span>
           </p>
         </div>
       </div>

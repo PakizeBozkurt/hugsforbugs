@@ -3,7 +3,7 @@ import ResultPage from "./ResultPage";
 import NavBar from "./NavBar";
 import AvailabilityCards from "./AvailabilityCards";
 import Heading from "./Heading";
-import Footer from './Footer/Footer';
+import Footer from "./Footer/Footer";
 import "./availabilityCards.css";
 import "./main.css";
 
@@ -14,7 +14,7 @@ const AllUsers = () => {
   const [selected, setSelected] = useState("monthly");
   useEffect(() => {
     fetch(
-      `https://study-buddies.onrender.com/availabilities?search=${search}&filter=${filter}`,
+      `https://starter-kit-0qci.onrender.com/api/availabilities?search=${search}&filter=${filter}`,
       {
         method: "GET",
         headers: {
@@ -32,20 +32,6 @@ const AllUsers = () => {
   const handleSearch = (event) => {
     const { value } = event.target;
     setSearch(value);
-  };
-
-  const handleFilter = (event) => {
-    event.preventDefault();
-    if (event.target.innerText === "Daily") {
-      setFilter("daily");
-      setSelected("daily");
-    } else if (event.target.innerText === "Weekly") {
-      setFilter("weekly");
-      setSelected("weekly");
-    } else if (event.target.innerText === "Monthly") {
-      setFilter("monthly");
-      setSelected("monthly");
-    }
   };
 
   return (
@@ -71,19 +57,8 @@ const AllUsers = () => {
                 className="btn-group"
                 role="group"
                 aria-label="Buttons to display all users"
-              >
-                <button
-                  type="button"
-                  className={`btn btn-${selected === "monthly" ? "info" : "outline-info"
-                    }`}
-                  value="monthly"
-                  onClick={handleFilter}
-                >
-                  AllUsers
-                </button>
-              </div>
+              ></div>
             </div>
-
           </div>
         </div>
         <div>
