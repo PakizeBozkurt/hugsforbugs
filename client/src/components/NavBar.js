@@ -73,7 +73,7 @@ function NavBar() {
           <Container>
             <Navbar.Brand href="/all-users">
               <Image
-                src="https://codeyourfuture.io/wp-content/uploads/2019/03/cyf_brand.png"
+                src="client/src/logo.svg"
                 alt="Code Your Future"
                 height="50"
               />
@@ -96,7 +96,7 @@ function NavBar() {
           <Container>
             <Navbar.Brand href="/">
               <Image
-                src="https://codeyourfuture.io/wp-content/uploads/2019/03/cyf_brand.png"
+                src="client/src/logo.svg"
                 alt="Code Your Future"
                 height="50"
               />
