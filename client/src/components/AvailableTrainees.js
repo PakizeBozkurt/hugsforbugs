@@ -3,7 +3,6 @@ import ResultPage from "./ResultPage";
 import AvailabilityCards from "./AvailabilityCards";
 import Heading from "./Heading";
 import NavBar from "./NavBar";
-import Footer from "./Footer/Footer";
 
 function AvailableTrainees() {
   const [trainees, setTrainees] = useState([]);
@@ -141,7 +140,6 @@ function AvailableTrainees() {
           </div>
         </div>
       )}
-      <Footer />
     </div>
   );
 }
