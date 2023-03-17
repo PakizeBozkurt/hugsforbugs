@@ -20,3 +20,23 @@ body {
   text-align: center;
   color: #ff0000;
 }
+
+/* styling for NavBar.js */
+.nav-link {
+  position: relative;
+  
+}
+.nav-link::after {
+  opacity: 0;
+  transition: all 0.2s;
+}
+.nav-link:hover::after {
+  content: '';
+  opacity: 1;
+  height: 2px;
+  width: 100px;
+  background-color: #000000;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
