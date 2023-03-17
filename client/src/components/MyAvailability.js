@@ -10,7 +10,7 @@ const MyAvailability = () => {
 
   useEffect(() => {
     fetch(
-      `https://study-buddies.onrender.com/availability/${localStorage.getItem(
+      `https://starter-kit-0qci.onrender.com/api/availability/${localStorage.getItem(
         "id"
       )}`,
       {

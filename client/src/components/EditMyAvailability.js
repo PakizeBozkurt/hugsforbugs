@@ -20,14 +20,17 @@ function EditMyAvailability(props) {
       topic: topic,
       trainees_id: trainees_id,
     };
-    fetch(`https://study-buddies.onrender.com/availability/${props.id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: localStorage.getItem("token"),
-      },
-      body: JSON.stringify(available),
-    })
+    fetch(
+      `https://starter-kit-0qci.onrender.com/api/availability/${props.id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: localStorage.getItem("token"),
+        },
+        body: JSON.stringify(available),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.error) {

@@ -13,7 +13,7 @@ function AvailableTrainees() {
 
   useEffect(() => {
     fetch(
-      `https://study-buddies.onrender.com/availabilities?search=${search}&filter=${filter}`,
+      `https://starter-kit-0qci.onrender.com/api/availabilities?search=${search}&filter=${filter}`,
       {
         method: "GET",
         headers: {
