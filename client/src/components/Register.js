@@ -1,15 +1,13 @@
 import React from "react";
 import { Form } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
-import Footer from "./Footer/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import Heading from "./Heading";
 import NavBar from "./NavBar";
 
 import "./Register.css";
+import Footer from "./Footer/Footer";
 
 const eye = <FontAwesomeIcon icon={faEye} />;
 
@@ -49,7 +47,7 @@ const Register = () => {
       password,
     };
 
-    fetch("https://study-buddies.onrender.com/register", {
+    fetch("https://starter-kit-0qci.onrender.com/api/register", {
       // this API comes from render.com
       method: "POST",
       headers: {
@@ -59,7 +57,7 @@ const Register = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.msg === "User created") {
+        if (data.message === "User created") {
           setErrorMessage("User created");
           window.location.href = "/login";
         } else if (data.errors[0].msg === "User already exists") {
@@ -168,10 +166,10 @@ const Register = () => {
                 </button>
               </div>
             </Form>
-            <Footer />
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

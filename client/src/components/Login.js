@@ -1,15 +1,12 @@
 import React from "react";
 import { Form } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Footer from "./Footer/Footer";
 import "./Register.css";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import Heading from "./Heading";
 import NavBar from "./NavBar";
-
 const eye = <FontAwesomeIcon icon={faEye} />;
 
 const Login = () => {
@@ -45,7 +42,7 @@ const Login = () => {
       email,
       password,
     };
-    fetch("https://study-buddies.onrender.com/login", {
+    fetch("https://starter-kit-0qci.onrender.com/api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -61,9 +58,8 @@ const Login = () => {
           localStorage.setItem("id", data.id);
           window.location.href = "/my-matches";
         } else {
-          alert("Wrong email or password");
-          window.location.reload();
           setErr(true);
+          window.location.reload();
         }
       })
       .catch((err) => console.log(err));
@@ -78,7 +74,11 @@ const Login = () => {
           <Heading name={"Login"} />
         </div>
         <Form noValidate validated={validated} onSubmit={handleChange}>
-          <Form.Group as={Col} className="input-field" controlId="formBasicEmail">
+          <Form.Group
+            as={Col}
+            className="input-field"
+            controlId="formBasicEmail"
+          >
             <InputGroup hasValidation>
               <Form.Control
                 type="email"
@@ -123,7 +123,6 @@ const Login = () => {
             </button>
           </div>
         </Form>
-        <Footer />
       </div>
     </div>
   );

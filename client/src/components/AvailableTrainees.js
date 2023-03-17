@@ -3,7 +3,6 @@ import ResultPage from "./ResultPage";
 import AvailabilityCards from "./AvailabilityCards";
 import Heading from "./Heading";
 import NavBar from "./NavBar";
-import Footer from './Footer/Footer';
 
 function AvailableTrainees() {
   const [trainees, setTrainees] = useState([]);
@@ -13,7 +12,7 @@ function AvailableTrainees() {
 
   useEffect(() => {
     fetch(
-      `https://study-buddies.onrender.com/availabilities?search=${search}&filter=${filter}`,
+      `https://starter-kit-0qci.onrender.com/api/availabilities?search=${search}&filter=${filter}`,
       {
         method: "GET",
         headers: {
@@ -81,8 +80,9 @@ function AvailableTrainees() {
                 >
                   <button
                     type="button"
-                    className={`btn btn-${selected === "daily" ? "info" : "outline-info"
-                      }`}
+                    className={`btn btn-${
+                      selected === "daily" ? "info" : "outline-info"
+                    }`}
                     value="daily"
                     onClick={handleFilter}
                   >
@@ -90,8 +90,9 @@ function AvailableTrainees() {
                   </button>
                   <button
                     type="button"
-                    className={`btn btn-${selected === "weekly" ? "info" : "outline-info"
-                      }`}
+                    className={`btn btn-${
+                      selected === "weekly" ? "info" : "outline-info"
+                    }`}
                     value="weekly"
                     onClick={handleFilter}
                   >
@@ -99,8 +100,9 @@ function AvailableTrainees() {
                   </button>
                   <button
                     type="button"
-                    className={`btn btn-${selected === "monthly" ? "info" : "outline-info"
-                      }`}
+                    className={`btn btn-${
+                      selected === "monthly" ? "info" : "outline-info"
+                    }`}
                     value="monthly"
                     onClick={handleFilter}
                   >
@@ -138,7 +140,6 @@ function AvailableTrainees() {
           </div>
         </div>
       )}
-      <Footer />
     </div>
   );
 }

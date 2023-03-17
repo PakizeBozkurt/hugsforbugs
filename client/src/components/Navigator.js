@@ -6,22 +6,19 @@ import Login from "./Login";
 import UserProfile from "./UserProfile";
 import MyAvailability from "./MyAvailability";
 import AllUsers from "./AllUsers";
-import AvailableTrainees from './AvailableTrainees';
-
+import AvailableTrainees from "./AvailableTrainees";
 
 function Navigator() {
   return (
-    <div>
-      <Routes>       
-        <Route path="/*" element={<Home />}/>
-        <Route path="/register" element={<Register />}/>
-        <Route path="/login" element={<Login />}/>
-        <Route path="/my-matches" element={<AvailableTrainees />}/>
-        <Route path="/my-availability" element={<MyAvailability />}/>
-        <Route path="/profile" element={<UserProfile />}/>
-        <Route path="/all-users" element={<AllUsers />}/>
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/*" element={<Home />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/my-matches" element={<AvailableTrainees />} />
+      <Route path="/my-availability" element={<MyAvailability />} />
+      <Route path="/profile" element={<UserProfile />} />
+      <Route path="/all-users" element={<AllUsers />} />
+    </Routes>
   );
 }
 

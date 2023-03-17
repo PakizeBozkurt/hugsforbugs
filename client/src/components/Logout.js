@@ -5,11 +5,9 @@ function Logout() {
     window.location.href = "/";
   };
   return (
-    <div>
-      <button onClick={handleLogout} className="logout-btn">
-        Logout{" "}
-      </button>
-    </div>
+    <button onClick={handleLogout} className="logout-btn">
+      Logout{" "}
+    </button>
   );
 }
 export default Logout;

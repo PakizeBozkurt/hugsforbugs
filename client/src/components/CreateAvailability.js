@@ -2,8 +2,7 @@ import { useState } from "react";
 import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import NavBar from "./NavBar";
-import Footer from "./Footer/Footer";
+
 
 function CreateAvailability() {
   const [date, setDate] = useState(new Date());
@@ -28,7 +27,7 @@ function CreateAvailability() {
       topic: topic,
       trainees_id: id,
     };
-    fetch("https://study-buddies.onrender.com/availability", {
+    fetch("https://starter-kit-0qci.onrender.com/api/availability", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,7 +41,7 @@ function CreateAvailability() {
           alert(data.error);
         } else {
           alert("You have created a new available date!");
-          window.location.href = "/my-matches";
+          window.location.reload();
         }
       })
       .catch((err) => console.log(err));
@@ -50,7 +49,7 @@ function CreateAvailability() {
 
   const handleBack = (event) => {
     event.preventDefault();
-    window.location.href = "/home";
+    window.location.href = "/my-matches";
   };
 
   return (

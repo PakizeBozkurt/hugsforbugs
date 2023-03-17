@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
-import Footer from "./Footer/Footer";
 import CreateAvailability from "./CreateAvailability";
 import MyAvailabilityCards from "./MyAvailabilityCards";
 import Heading from "./Heading";
@@ -10,7 +9,7 @@ const MyAvailability = () => {
 
   useEffect(() => {
     fetch(
-      `https://study-buddies.onrender.com/availability/${localStorage.getItem(
+      `https://starter-kit-0qci.onrender.com/api/availability/${localStorage.getItem(
         "id"
       )}`,
       {
@@ -55,7 +54,6 @@ const MyAvailability = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
