@@ -11,7 +11,7 @@ function Logout() {
         border: "1px solid red",
         top: "20px",
         right: "15px",
-        cursor: "pointer"
+        cursor: "pointer",
       }}
       onClick={handleLogout}
       className="logout-btn"

@@ -1,5 +1,4 @@
 import React from "react";
-import Heading from "./Heading";
 
 const ResultPage = (props) => {
   return (
@@ -19,8 +18,9 @@ const ResultPage = (props) => {
             <div className="btn-group" role="group" aria-label="Basic example">
               <button
                 type="button"
-                className={`btn btn-${props.selected === "daily" ? "info" : "outline-info"
-                  }`}
+                className={`btn btn-${
+                  props.selected === "daily" ? "info" : "outline-info"
+                }`}
                 value="daily"
                 onClick={props.handleFilter}
               >
@@ -28,8 +28,9 @@ const ResultPage = (props) => {
               </button>
               <button
                 type="button"
-                className={`btn btn-${props.selected === "weekly" ? "info" : "outline-info"
-                  }`}
+                className={`btn btn-${
+                  props.selected === "weekly" ? "info" : "outline-info"
+                }`}
                 value="weekly"
                 onClick={props.handleFilter}
               >
@@ -37,8 +38,9 @@ const ResultPage = (props) => {
               </button>
               <button
                 type="button"
-                className={`btn btn-${props.selected === "monthly" ? "info" : "outline-info"
-                  }`}
+                className={`btn btn-${
+                  props.selected === "monthly" ? "info" : "outline-info"
+                }`}
                 value="monthly"
                 onClick={props.handleFilter}
               >

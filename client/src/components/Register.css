@@ -63,10 +63,10 @@ Form {
   color: #fff;
   font-family: "Poppins", sans-serif;
 }
-.password-container{
+.password-container {
   position: relative;
 }
-.fa-eye{
+.fa-eye {
   position: absolute;
   top: 53%;
   right: 3%;

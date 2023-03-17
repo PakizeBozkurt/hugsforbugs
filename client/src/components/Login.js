@@ -1,6 +1,5 @@
 import React from "react";
 import { Form } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -61,9 +60,8 @@ const Login = () => {
           localStorage.setItem("id", data.id);
           window.location.href = "/my-matches";
         } else {
-          alert("Wrong email or password");
-          window.location.reload();
           setErr(true);
+          window.location.reload();
         }
       })
       .catch((err) => console.log(err));
@@ -78,7 +76,11 @@ const Login = () => {
           <Heading name={"Login"} />
         </div>
         <Form noValidate validated={validated} onSubmit={handleChange}>
-          <Form.Group as={Col} className="input-field" controlId="formBasicEmail">
+          <Form.Group
+            as={Col}
+            className="input-field"
+            controlId="formBasicEmail"
+          >
             <InputGroup hasValidation>
               <Form.Control
                 type="email"

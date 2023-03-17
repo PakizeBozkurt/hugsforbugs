@@ -1,5 +1,5 @@
 footer {
-  position: fixed;
+  position: relative;
   align-items: flex-start;
   gap: 2px;
   left: 0;
@@ -66,7 +66,7 @@ footer ul li a {
 }
 
 .social-icons a:hover {
-  background-color: #15485F;
+  background-color: #15485f;
 }
 
 .social-icons a:focus {
@@ -85,7 +85,7 @@ footer ul li a {
 }
 
 .terms a:hover {
-  color: #E3EBEE;
+  color: #e3ebee;
 }
 
 /* Media Queries */

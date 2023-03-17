@@ -42,7 +42,7 @@ function CreateAvailability() {
           alert(data.error);
         } else {
           alert("You have created a new available date!");
-          window.location.href = "/my-matches";
+          window.location.reload();
         }
       })
       .catch((err) => console.log(err));
