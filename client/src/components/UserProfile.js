@@ -2,7 +2,6 @@ import React from "react";
 import NavBar from "./NavBar";
 
 const UserProfile = () => {
-  console.log(localStorage);
   return (
     <div>
       <div>

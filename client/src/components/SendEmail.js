@@ -27,9 +27,7 @@ const SendEmail = (props) => {
           body: JSON.stringify(data),
         }
       );
-      console.log(response);
       const content = await response.json();
-      console.log(content);
       alert("Email sent successfully");
       window.location.reload();
     }
