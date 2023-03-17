@@ -18,7 +18,7 @@ function Footer() {
         <div>
           <img
             className="logo"
-            src="https://codeyourfuture.io/wp-content/uploads/2019/03/cyf_brand.png"
+            src="client/src/logo.svg"
             alt="Code Your Future Logo"
           />
           <h3>Follow Us</h3>
