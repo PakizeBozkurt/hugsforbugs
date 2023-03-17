@@ -3,7 +3,6 @@ import { Form } from "react-bootstrap";
 import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Footer from "./Footer/Footer";
 import "./Register.css";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import Heading from "./Heading";
@@ -125,7 +124,6 @@ const Login = () => {
             </button>
           </div>
         </Form>
-        <Footer />
       </div>
     </div>
   );
