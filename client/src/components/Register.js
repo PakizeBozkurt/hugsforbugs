@@ -7,6 +7,7 @@ import Heading from "./Heading";
 import NavBar from "./NavBar";
 
 import "./Register.css";
+import Footer from "./Footer/Footer";
 
 const eye = <FontAwesomeIcon icon={faEye} />;
 

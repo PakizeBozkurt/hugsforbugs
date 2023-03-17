@@ -1,18 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Poppins:ital,wght@0,200;0,400;0,500;0,600;0,800;1,500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&family=Poppins:ital,wght@0,200;0,400;0,500;0,600;0,800;1,500&display=swap");
 
 * {
   box-sizing: border-box;
-  margin: 0; 
-  padding: 0; 
-  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-  --white: #fff; 
-  --navyBlue: #15485F; 
-  --black: #111; 
-  --lightGray: #393053; 
-  --lineGradientShadow: 180deg, #1F1E1E 0%, rgba(31, 30, 0, 0) 70%; 
+  --white: #fff;
+  --navyBlue: #15485f;
+  --black: #111;
+  --lightGray: #393053;
+  --lineGradientShadow: 180deg, #1f1e1e 0%, rgba(31, 30, 0, 0) 70%;
 }
 
 .showcase {
@@ -43,8 +43,8 @@ body {
 }
 
 .btn-wrapper button {
-  font-size: 1em; 
-  padding: 10px 50px; 
+  font-size: 1em;
+  padding: 10px 50px;
   border-radius: 6px;
   border-color: transparent;
   text-transform: uppercase;
@@ -74,7 +74,6 @@ body {
   height: 100vh;
   background: linear-gradient(var(--lineGradientShadow));
 }
-
 
 .text p {
   font-size: 1.2rem;
