@@ -1,6 +1,9 @@
 import React from "react";
 import { Container, Nav, Navbar, Image } from "react-bootstrap";
 import UserInfoMenu from "./UserInfoMenu";
+import logo from "../logo.png";
+
+
 function NavBar() {
 <<<<<<< HEAD
    return (
@@ -73,7 +76,7 @@ function NavBar() {
           <Container>
             <Navbar.Brand href="/all-users">
               <Image
-                src="client/src/logo.svg"
+                src={logo}
                 alt="Code Your Future"
                 height="50"
               />
@@ -96,7 +99,7 @@ function NavBar() {
           <Container>
             <Navbar.Brand href="/">
               <Image
-                src="client/src/logo.svg"
+                src={logo}
                 alt="Code Your Future"
                 height="50"
               />
