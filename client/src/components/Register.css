@@ -61,6 +61,7 @@ Form {
 .signUp-btn {
   background-color: #111;
   color: #fff;
+  border: none;
   font-family: "Poppins", sans-serif;
 }
 .password-container {
