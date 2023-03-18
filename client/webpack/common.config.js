@@ -15,8 +15,12 @@ module.exports = {
 				},
 			},
 			{
-				test: /\.(pdf|doc|docx|xls|xlsx|ppt|pptx|zip|rar|tar|gz|7z|iso|dmg|exe|mp4)$/,
-				loader: "file-loader",
+				test: /\.(png|jpe?g|gif|doc|docx|xls|xlsx|ppt|pptx|zip|rar|tar|gz|7z|iso|dmg|exe|mp4)$/i,
+				use: [
+					{
+						loader: 'file-loader',
+					},
+				],
 			},
 			{
 				test: /\.css$/,

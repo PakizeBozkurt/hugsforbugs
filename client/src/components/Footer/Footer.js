@@ -10,6 +10,7 @@ import {
   faGoogle,
 } from "@fortawesome/free-brands-svg-icons";
 import "./Footer.css";
+import logo from "../../logo.png";
 
 function Footer() {
   return (
@@ -18,7 +19,7 @@ function Footer() {
         <div>
           <img
             className="logo"
-            src="client/src/logo.svg"
+            src={logo}
             alt="Code Your Future Logo"
           />
           <h3>Follow Us</h3>
