@@ -10,7 +10,7 @@ function NavBar() {
       {localStorage.getItem("token") ? (
         <Navbar bg="light" variant="light" expand="lg">
           <Container>
-            <Navbar.Brand href="/">
+            <Navbar.Brand href="/all-users">
               <Image
                 src={logo}
                 alt="Code Your Future"
@@ -44,7 +44,7 @@ function NavBar() {
           <Container>
             <Navbar.Brand href="/">
               <Image
-                src="https://codeyourfuture.io/wp-content/uploads/2019/03/cyf_brand.png"
+                src={logo}
                 alt="Code Your Future"
                 height="50"
               />
