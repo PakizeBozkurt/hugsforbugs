@@ -11,7 +11,7 @@ const UserInfoMenu = () => {
   return (
     <div>
       <Dropdown>
-        <Dropdown.Toggle variant="outline-success" id="user-info-dropdown">
+        <Dropdown.Toggle variant="dark" id="user-info-dropdown">
           {user.name.charAt(0).toLocaleUpperCase()}{" "}
           {/* Replace with the name of the logged user */}
         </Dropdown.Toggle>

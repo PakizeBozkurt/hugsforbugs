@@ -32,3 +32,9 @@
 #user-info-dropdown {
   border-radius: 50px;
 }
+
+/* styling for NavBar.js */
+
+.dropdown-toggle::after {
+  margin-top: 0.5em;
+}
