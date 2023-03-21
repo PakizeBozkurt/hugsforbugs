@@ -2,12 +2,14 @@ import React from "react";
 import DeleteMyAvailability from "./DeleteMyAvailability";
 import EditMyAvailability from "./EditMyAvailability";
 
+
 function MyAvailabilityCards(props) {
   return (
+
     <div className="col-md-4 cards">
       <div className="card mb-4 cardDesign shadow-sm">
-        <div className={"card"}>
-          <div className={"card-body"}>
+        <div >
+          <div >
             <h5 className="card-title">
               {" "}
               Date:{" "}
@@ -17,13 +19,15 @@ function MyAvailabilityCards(props) {
               Topic: {props.date.topic}
             </h6>
           </div>
-          <div>
+          <div className="d-flex justify-content-end">
             <DeleteMyAvailability id={props.date.id} />
             <EditMyAvailability id={props.date.id} />
           </div>
         </div>
       </div>
     </div>
+
+
   );
 }
 

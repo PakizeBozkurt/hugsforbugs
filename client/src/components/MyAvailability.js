@@ -36,6 +36,7 @@ const MyAvailability = () => {
       <Heading name={"My Availability"} />
       <div>
         <div>
+
           <CreateAvailability />
           <hr />
           <div className="container">
