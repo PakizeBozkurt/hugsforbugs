@@ -2,11 +2,10 @@ import { useState } from "react";
 import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { Card } from "react-bootstrap";
 import Heading from "./Heading";
-
 
 function CreateAvailability() {
   const [date, setDate] = useState(new Date());
@@ -57,64 +56,67 @@ function CreateAvailability() {
   };
 
   return (
-      <div >
-          <div>
-              <div >
-                  <div className="container">
-                      <div className="row">
+    <div>
+      <div>
+        <div>
+          <div className="container">
+            <div className="row">
+              <div className="col-md-6 mt-5 mx-auto">
+                <Form onSubmit={handleSubmit}>
+                  <div>
+                    <h6 className="h3 mb-3 font-weight-normal">
+                      Create Availability
+                    </h6>
+                  </div>
+                  <Form.Group>
+                    <Form.Label>Date</Form.Label>
+                    <Form.Control
+                      type="date"
+                      className="form-control"
+                      min={new Date().toISOString().split("T")[0]}
+                      max={
+                        new Date(new Date().setMonth(new Date().getMonth() + 1))
+                          .toISOString()
+                          .split("T")[0]
+                      }
+                      name="date"
+                      onChange={handleChange}
+                      required
+                      style={{ width: 200 }}
+                    />
+                  </Form.Group>
+                  <Form.Group>
+                    <Form.Label>Topic</Form.Label>
+                    <Form.Control
+                      type="text"
+                      className="form-control"
+                      name="topic"
+                      value={topic}
+                      onChange={handleChange}
+                      required
+                      style={{ width: 200 }}
+                    />
+                  </Form.Group>
+                  <div className="d-flex justify-content-sm-evenly">
+                    <Button variant="outline-primary" type="submit">
+                      <FontAwesomeIcon icon={faPlus} />
+                    </Button>
 
-<div className="col-md-6 mt-5 mx-auto">
-                    <Form onSubmit={handleSubmit}>
-                        <div>
-                            <h6 className="h3 mb-3 font-weight-normal">Create Availability</h6>
-                        </div>
-                        <Form.Group>
-
-                            <Form.Label>Date</Form.Label>
-                            <Form.Control
-                                type="date"
-                                className="form-control"
-                                min={new Date().toISOString().split('T')[0]}
-                                max={new Date(new Date().setMonth(new Date().getMonth() + 1)).toISOString().split('T')[0]}
-                                name="date"
-                                onChange={handleChange}
-                                required
-                                style={{width: 200}}
-                            />
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.Label>Topic</Form.Label>
-                            <Form.Control
-                                type="text"
-                                className="form-control"
-                                name="topic"
-                                value={topic}
-                                onChange={handleChange}
-                                required
-                                style={{width: 200}}
-                            />
-                        </Form.Group>
-                        <div className="d-flex justify-content-sm-evenly">
-                            <Button variant="outline-primary" type="submit">
-                                <FontAwesomeIcon icon={faPlus} />
-                            </Button>
-
-                            <Button variant="outline-warning" type="submit" onClick={handleBack}>
-                                <FontAwesomeIcon icon={faArrowLeft} />
-
-                            </Button>
-                        </div>
-                    </Form>
-</div>
-
-
+                    <Button
+                      variant="outline-warning"
+                      type="submit"
+                      onClick={handleBack}
+                    >
+                      <FontAwesomeIcon icon={faArrowLeft} />
+                    </Button>
+                  </div>
+                </Form>
               </div>
+            </div>
           </div>
+        </div>
       </div>
-          </div>
-      </div>
-
-
+    </div>
   );
 }
 

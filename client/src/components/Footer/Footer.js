@@ -17,11 +17,13 @@ function Footer() {
     <footer className="footer">
       <div className="row">
         <div>
-          <img
-            className="logo"
-            src={logo}
-            alt="Code Your Future Logo"
-          />
+         <a href={"/all-users"}>
+           <img
+               className="logo"
+               src={logo}
+               alt="Code Your Future Logo"
+           />
+            </a>
           <h3>Follow Us</h3>
           <ul className="social-icons text-center">
             <li>
