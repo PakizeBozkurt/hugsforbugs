@@ -2,6 +2,8 @@ import React from "react";
 import { Container, Nav, Navbar, Image } from "react-bootstrap";
 import UserInfoMenu from "./UserInfoMenu";
 import logo from "../logo.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 
 function NavBar() {
@@ -34,6 +36,7 @@ function NavBar() {
                 </Nav.Link>
               </Nav>
               <Nav className="ml-auto">
+
                 <UserInfoMenu />
               </Nav>
             </Navbar.Collapse>

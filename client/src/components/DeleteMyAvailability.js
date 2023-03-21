@@ -1,5 +1,7 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 function DeleteMyAvailability(props) {
   const handleDelete = (e) => {
     e.preventDefault();
@@ -26,8 +28,8 @@ function DeleteMyAvailability(props) {
   };
   return (
     <div>
-      <Button variant="outline-success" onClick={handleDelete}>
-        Delete
+      <Button variant="outline-danger" onClick={handleDelete}>
+          <FontAwesomeIcon icon={faTrashAlt} />
       </Button>
     </div>
   );

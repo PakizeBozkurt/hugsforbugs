@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Form, Modal } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import { faClose, faEdit, faSave } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function EditMyAvailability(props) {
   const [edit, setEdit] = useState(false);
@@ -55,7 +57,7 @@ function EditMyAvailability(props) {
   return (
     <div>
       <Button variant="outline-primary" onClick={() => setEdit(!setEdit())}>
-        Edit
+        <FontAwesomeIcon icon={faEdit} />
       </Button>
       <Modal show={edit} onHide={() => setEdit(!edit)}>
         <Modal.Header closeButton>
@@ -64,27 +66,29 @@ function EditMyAvailability(props) {
         <Modal.Body>
           <Form style={{ width: "50%", margin: "auto" }}>
             <h5>{errorMessage}</h5>
-            <Form.Group controlId="formBasicDate">
+            <Form.Group>
               <Form.Label>Date</Form.Label>
               <Form.Control
-                type="date"
-                min={new Date().toISOString().split("T")[0]}
-                max={
-                  new Date(new Date().setMonth(new Date().getMonth() + 1))
-                    .toISOString()
-                    .split("T")[0]
-                }
-                name="date"
-                onChange={handleChange}
+                  type="date"
+                  className="form-control"
+                  min={new Date().toISOString().split('T')[0]}
+                  max={new Date(new Date().setMonth(new Date().getMonth() + 1)).toISOString().split('T')[0]}
+                  name="date"
+                  onChange={handleChange}
+                  required
+                  style={{width: 200}}
               />
             </Form.Group>
-            <Form.Group controlId="formBasicTopic">
+            <Form.Group>
               <Form.Label>Topic</Form.Label>
               <Form.Control
-                type="text"
-                placeholder="Topic"
-                name="topic"
-                onChange={handleChange}
+                  type="text"
+                  className="form-control"
+                  name="topic"
+                  value={topic}
+                  onChange={handleChange}
+                  required
+                  style={{width: 200}}
               />
             </Form.Group>
           </Form>
@@ -95,11 +99,12 @@ function EditMyAvailability(props) {
             variant="outline-info"
             onClick={() => setEdit(!edit)}
           >
-            Close
+
+            <FontAwesomeIcon icon={faClose} />
           </Button>
           <br />
           <Button variant="outline-success" onClick={handleUpdate}>
-            Save Changes
+           <FontAwesomeIcon icon={faSave} />
           </Button>
         </Modal.Footer>
       </Modal>
